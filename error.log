@@ -1,0 +1,7 @@
+
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"ma2sfa@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 125.258 ms - message: -
+[31merror[39m: POST /user 500 - 45.301 ms - message: -
+[31merror[39m: POST /user 500 - 44.619 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"mufa@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 22.027 ms - message: -
