@@ -49,3 +49,48 @@
 [32minfo[39m: POST /user 201 - 19.025 ms
 [32minfo[39m: ...app listening on port 4000
 [32minfo[39m: ...app listening on port 4000
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET / 404 - 6.119 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: GET /user 404 - 116.858 ms - message: -
+[32minfo[39m: POST /user 200 - 32.422 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: POST /user 200 - 385.465 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: POST /user 200 - 5473.731 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: POST /user 201 - 4985.602 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: POST /user 200 - 16.850 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 25.949 ms - message: -
+[31merror[39m: POST /user 400 - 23.403 ms - message: -
+[31merror[39m: POST /user 400 - 3.238 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 12.286 ms - message: -
+[31merror[39m: POST /user 400 - 4.943 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 22.576 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 34.982 ms - message: -
+[31merror[39m: POST /user 400 - 0.921 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 12.058 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 48.989 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 9.243 ms - message: -
+[31merror[39m: POST /user 400 - 56.434 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /user 400 - 12.260 ms - message: -
+[31merror[39m: POST /user 400 - 8.484 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
