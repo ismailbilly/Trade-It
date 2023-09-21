@@ -1,5 +1,5 @@
-//const Users = require("../models/user")
-const xwapitDB_collections = require("../repository/collections");
+const Users = require("../models/user")
+//const xwapitDB_collections = require("../repository/collections");
 const successHandler = require("../utils/successResponse");
 const bcrypt = require("bcrypt")
 const logger = require("../config/logger")
@@ -8,7 +8,7 @@ const {findQuery, insertOne} = require("../repository");
 const createUser = async(req,res,next) => {
     const { lastname, othername, email, password } = req.body
     try {
-         const user = await findQuery(xwapitDB_collections.users, {
+         const user = await findQuery(Users, {
            email: email,
          });
       if (user.length > 0) {

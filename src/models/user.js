@@ -27,4 +27,4 @@ const UserSchema = new mongoose.Schema({
 //const Users = mongoose.model(xwapitDB.users, UserSchema);
 
 //module.exports = { Users };
-module.exports = mongoose.model(xwapitDB_collections.users, UserSchema);
+module.exports = mongoose.model(Users, UserSchema);
