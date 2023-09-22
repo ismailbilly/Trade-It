@@ -2,7 +2,7 @@ const { model, Schema } = require("mongoose");
 
 const categorySchema = new Schema(
   {
-    category_interest_id: {
+    category_id: {
       type: String,
       unique: true,
       required: true,
