@@ -1,6 +1,6 @@
 const { model, Schema } = require("mongoose");
 
-const categoryInterestSchema = new Schema(
+const categorySchema = new Schema(
   {
     category_interest_id: {
       type: String,
@@ -19,5 +19,5 @@ const categoryInterestSchema = new Schema(
   { timestamps: true }
 );
 
-const categoryInterest = model("category_interest", categoryInterestSchema);
-module.exports = categoryInterest;
+const category = model("Category", categorySchema);
+module.exports = category;
