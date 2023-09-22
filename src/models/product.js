@@ -53,10 +53,6 @@ const productSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    is_approved: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true }
 );
