@@ -11,7 +11,10 @@ const categoryInterestSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    prefence: {},
+    description: {
+      type: String,
+      required: [true, "Description of this category is required"],
+    },
   },
   { timestamps: true }
 );

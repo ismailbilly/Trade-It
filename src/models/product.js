@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
-const listingSchema = new Schema({
-  listing_id: {
+const productSchema = new Schema({
+  product_id: {
     type: String,
     unique: true,
   },
@@ -12,6 +12,12 @@ const listingSchema = new Schema({
     type: String,
     required: [true, "product name for the item to be listed is required"],
   },
+  quantity_available: {
+    type: Number,
+  },
+  trade_preferences: {
+    type: String,
+  },
   Description: {
     type: String,
     required: [true, "description for the item to be listed is required"],
@@ -20,7 +26,16 @@ const listingSchema = new Schema({
     type: String,
     required: [true, "location of the user listing the item is required"],
   },
-  Images: {},
+  condition: {
+    type: String,
+    enum: {
+      values: ["new", "old", "fairly used"],
+      message: "{VALUE} is not supported",
+    },
+  },
+  Images: {
+    type: String,
+  },
   approval_status: {
     type: String,
     enum: {
@@ -28,6 +43,9 @@ const listingSchema = new Schema({
       message: "{VALUE} is not supported",
     },
   },
+  additional_note: {
+    type: String,
+  },
 });
-const Listing = model("Listing", listingSchema);
-module.exports = Listing;
+const Product = model("Product", productSchema);
+module.exports = Product;
