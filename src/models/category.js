@@ -11,9 +11,14 @@ const categorySchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    category_name: {
+      type: String,
+      unique: [true, "This category name already exists"],
+      required: [true, "This field is required"],
+    },
     description: {
       type: String,
-      required: [true, "Description of this category is required"],
+      required: [true, "Description for this category is required"],
     },
   },
   { timestamps: true }
