@@ -1,13 +1,13 @@
 const Joi = require("joi");
 
 const create = Joi.object({
-  lastname: Joi.string().required(),
+  surname: Joi.string().required(),
   othernames: Joi.string().required(),
   email: Joi.string().email({ minDomainSegments: 2 }),
   phone_number: Joi.string().min(11).required().label("Phone number").messages({
     "string.empty": `"Phone Number" cannot be an empty`,
     "string.min": `"Phone Number should have length of 11 digits`,
-    "any.required": `"hone Number" is a required field`,
+    "any.required": `"Phone Number" is a required field`,
   }),
   password: Joi.string()
     .min(8)

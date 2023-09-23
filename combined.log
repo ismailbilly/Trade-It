@@ -49,3 +49,188 @@
 [32minfo[39m: POST /user 201 - 19.025 ms
 [32minfo[39m: ...app listening on port 4000
 [32minfo[39m: ...app listening on port 4000
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 4500
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 404 - 17.388 ms - message: -
+info: POST /user 201 - 183.868 ms
+info: ...app listening on port 5000
+info: POST /user 200 - 62.884 ms
+info: ...app listening on port 5000
+info: POST /user 200 - 52.472 ms
+info: POST /user 200 - 8.656 ms
+info: POST /user 200 - 9.527 ms
+info: ...app listening on port 5000
+error: POST /user 400 - 90.451 ms - message: -
+info: ...app listening on port 5000
+error: POST /user 400 - 10.743 ms - message: -
+error: POST /user 400 - 1.560 ms - message: -
+error: POST /user 400 - 1.007 ms - message: -
+error: POST /user 400 - 4.788 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /user 400 - 7.945 ms - message: -
+error: POST /user 400 - 1.758 ms - message: -
+info: ...app listening on port 5000
+error: POST /user 400 - 14.025 ms - message: -
+error: POST /user 400 - 2.791 ms - message: -
+error: POST /user 400 - 1.337 ms - message: -
+error: GET / 404 - 0.987 ms - message: -
+error: GET /favicon.ico 404 - 0.919 ms - message: -
+error: POST /user 400 - 2.792 ms - message: -
+error: POST /user 400 - 4.594 ms - message: -
+error: POST /user 400 - 3.835 ms - message: -
+error: POST /user 400 - 1.787 ms - message: -
+error: POST /user 400 - 2.442 ms - message: -
+error: POST /user 400 - 1.231 ms - message: -
+error: POST /user 400 - 1.020 ms - message: -
+error: POST /user 400 - 3.299 ms - message: -
+error: POST /user 400 - 1.686 ms - message: -
+error: POST /user 400 - 3.990 ms - message: -
+error: POST /user 400 - 1.571 ms - message: -
+error: POST /user 400 - 1.709 ms - message: -
+error: POST /user 400 - 1.348 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 8.409 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 6.669 ms - message: -
+info: ...app listening on port 5000
+error: GET /user 500 - 7.627 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 5.377 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 6.363 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 2.713 ms - message: -
+info: ...app listening on port 5000
+error: GET /user 500 - 3.131 ms - message: -
+info: ...app listening on port 5000
+error: GET /user 500 - 8.284 ms - message: -
+info: ...app listening on port 5000
+error: GET /user 500 - 5.772 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /user 500 - 5.056 ms - message: -
+error: POST /user 400 - 9.089 ms - message: -
+info: ...app listening on port 5000
+error: POST /login 404 - 5.149 ms - message: -
+error: GET /login 404 - 2.865 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 404 - 13.315 ms - message: -
+info: ...app listening on port 5000
+error: POST /login 404 - 4.029 ms - message: -
+error: POST /login 404 - 1.470 ms - message: -
+error: POST /login 404 - 1.179 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST / 404 - 8.601 ms - message: -
