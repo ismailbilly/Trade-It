@@ -33,7 +33,7 @@ const port = process.env.PORT || 4500;
 //DATABASE
 
 //ROUTES
-app.use("/", authRoutes);
+app.use("/user", authRoutes);
 
 //Server
 app.listen(port, async () => {

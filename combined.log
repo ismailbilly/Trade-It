@@ -351,3 +351,174 @@ error: POST / 404 - 8.601 ms - message: -
 [32minfo[39m: ...app listening on port 8296
 [32minfo[39m: ...app listening on port 8296
 [32minfo[39m: ...app listening on port 8296
+info: ...app listening on port 5000
+error: GET /user 404 - 2.773 ms - message: -
+error: POST /user 400 - 5.228 ms - message: -
+error: POST /user 400 - 1.180 ms - message: -
+error: POST /user 400 - 1.773 ms - message: -
+error: POST /user 400 - 1.194 ms - message: -
+error: POST /user 400 - 168.636 ms - message: -
+info: ...app listening on port 5000
+info: POST /user 201 - 143.519 ms
+info: POST /user 201 - 131.375 ms
+error: POST /user 400 - 15.445 ms - message: -
+info: POST /user 201 - 118.695 ms
+info: POST /user 201 - 125.248 ms
+error: POST /user 400 - 13.594 ms - message: -
+info: ...app listening on port 5000
+info: POST /user 201 - 146.510 ms
+error: POST /user 400 - 14.766 ms - message: -
+error: PATCH /complete-forget-password/123456 400 - 2.317 ms - message: -
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 5.485 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 3.834 ms - message: -
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 4.273 ms - message: -
+error: PATCH /complete-forget-password/123456 400 - 5.157 ms - message: -
+error: PATCH /complete-forget-password/123456 400 - 2.063 ms - message: -
+error: PATCH /complete-forget-password/123456 400 - 23.205 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 27.891 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 28.986 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: PATCH /complete-forget-password/123456 400 - 118.993 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: GET /login 500 - 10019.476 ms - message: -
+error: POST /login 404 - 1.925 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 404 - 3.536 ms - message: -
+info: ...app listening on port 5000
+error: POST /login 400 - 6.243 ms - message: -
+error: POST /login 500 - 10024.904 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /user 400 - 20.078 ms - message: -
+info: ...app listening on port 5000
+info: POST /user 201 - 137.499 ms
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 500 - 10028.441 ms - message: -
+info: POST /user 201 - 132.303 ms
+info: POST /user 201 - 116.035 ms
+info: POST /user 201 - 106.731 ms
+info: POST /user 201 - 107.820 ms
+info: ...app listening on port 5000
+error: POST /user 400 - 29.395 ms - message: -
+error: POST /user 400 - 11.798 ms - message: -
+error: POST /user 400 - 9.279 ms - message: -
+error: POST /user 400 - 6.993 ms - message: -
+error: POST /user 400 - 7.009 ms - message: -
+info: POST /user 201 - 117.713 ms
+error: POST /user 400 - 7.477 ms - message: -
+error: POST /login 500 - 10019.204 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 500 - 19.375 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 500 - 24.487 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+error: POST /login 500 - 19.099 ms - message: -
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: ...app listening on port 5000
+info: POST /login - - - ms
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000

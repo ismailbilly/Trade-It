@@ -27,7 +27,7 @@ const create = Joi.object({
 });
 
 const validateCompleteForgotPassword = Joi.object({
-  // email: Joi.string().email({ minDomainSegments: 2 }),
+  email: Joi.string().email({ minDomainSegments: 2 }).required(),
   newPassword: Joi.string()
     .min(8)
     .regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,30}$/)
@@ -60,10 +60,28 @@ const updateUserInfo = Joi.object({
 const validateEmail = Joi.object({
   email: Joi.string().email({ minDomainSegments: 2 }).required(),
 });
+const validateLogin = Joi.object({
+  email: Joi.string().email({ minDomainSegments: 2 }).required(),
+  password: Joi.string()
+  .min(8)
+  .regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,30}$/)
+  .required()
+  .label("Password")
+  .messages({
+    "string.empty": `"Password" cannot be an empty`,
+    "string.min": `"Password" should have a minimum length of {#limit}`,
+    "any.required": `"Password" is a required field`,
+    "object.regex": `Password must have at least 8 characters`,
+    "string.pattern.base": `Password must contain at least a number, letter and special characters`,
+  }),
+});
+
+
 module.exports = {
   create,
   changePassword,
   updateUserInfo,
   validateEmail,
   validateCompleteForgotPassword,
+  validateLogin
 };

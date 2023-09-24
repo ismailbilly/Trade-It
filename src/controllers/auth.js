@@ -8,6 +8,7 @@ const {
   CustomerCreated,
   resetCustomerPasswordSuccessful,
   CustomerExist,
+  InvalidCredentials
 } = require("../constants/messages");
 const {
   hashPassword,
@@ -16,7 +17,7 @@ const {
   phoneValidation,
 } = require("../utils/helpers");
 
-const { findQuery, insertOne, updateOne } = require("../repository");
+const { findQuery, insertOne, updateOne, findOne } = require("../repository");
 
 const jwt = require("jsonwebtoken");
 const Users = require("../models/user");
@@ -68,14 +69,13 @@ const Users = require("../models/user");
 // }
 
 const register = async (req, res) => {
-  const { surname, othernames, email, phone, password } = req.body;
+  const { surname, othernames, email, phone_number, password } = req.body;
   try {
-    const checkIfUserExist = await findQuery("Users", {
+    const checkIfUserExist = await findOne("Users", {
       email: email,
     });
-    console.log(checkIfUserExist);
-    console.log(checkIfUserExist.length);
-    if (checkIfUserExist.length > 1) throw new Error(CustomerExist);
+  
+    if (checkIfUserExist) throw new Error(CustomerExist);
 
     const user_id = uuidv4();
     const { hash, salt } = await hashPassword(password);
@@ -84,21 +84,18 @@ const register = async (req, res) => {
       surname,
       othernames,
       email,
-      phone: "0987654323456",
+      phone:phone_number,
       passwordHash: hash,
       passwordSalt: salt,
     });
 
-    // const _otp = generateOtp();
-    // const otpModel = {
-    //   email: createUser.email,
-    //   otp: _otp,
-    // };
-    // redisClient.set(`${createUser.email}`, JSON.stringify(_otp), {
-    //   EX: 60 * 3, //seconds
-    //   //NX: true,
+    const _otp = generateOtp(6);
+   
+    // redisClient.set(`${email}`, JSON.stringify(_otp), {
+    //   EX: 60 * 5, //seconds
+    //   NX: true,
     // });
-    //await newUser.save();
+    
     const user = await insertOne("Users", newUser);
 
     // readFileAndSendEmail(
@@ -124,28 +121,36 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const checkEmail = await Users.findOne({ email: email });
-    if (checkEmail == null) throw new Error("Invalid Credentials");
-
+    const checkIfUserExist = await findOne("Users", {
+      email: email,
+    });
+  
+    if (!checkIfUserExist) throw new Error(InvalidCredentials);
+    
+    //check if  user is verified
+    //check if user is verified
+   
     //compare password
     const checkPasswordMatch = await comparePassword(
       password,
-      checkEmail.passwordHash
+      checkIfUserExist.passwordHash
     );
-    if (!checkPasswordMatch) {
+    if (checkPasswordMatch) 
       throw new Error("Incorrect Password");
-    }
-
+   console.log('we are here')
+      
     // using jwt to generate token
-    const token = jwt.sign(
+    const token =  await jwt.sign(
       {
-        id: uuidv4,
-        email: checkEmail.email,
+        id: uuidv4(),
+        email: email,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
-    );
 
+    );
+      // console.log(token)
+      console.log("I am here")
     res.status(200).json({
       status: "success",
       message: "User logged in successfully",
@@ -156,7 +161,7 @@ const login = async (req, res) => {
       status: "error",
       error: err.message,
     });
-    console.log(login);
+    console.log(err);
   }
 };
 
@@ -177,17 +182,14 @@ const editUser = async (req, res) => {
   }
 };
 
-// * start forget password [get]
-// * 1. check if the user exists in the database
-// * 2. if yes, send an verfication token to the user
+
 const startForgetPassword = async (req, res, next) => {
   const { email } = req.body;
 
   try {
-    //const checkIfUserExist =
+    
     const checkIfUserExist = await findQuery("Users", { email: email });
-    console.log(checkIfUserExist);
-    //const checkIfUserExist = await Users.findOne({ email: email });
+
     if (checkIfUserExist.length < 1) throw new Error("user not found");
 
     const _otp = generateOtp(6);
@@ -207,18 +209,24 @@ const startForgetPassword = async (req, res, next) => {
 };
 
 const completeForgotPassword = async (req, res, next) => {
-  const { password } = req.body;
+  const { newPassword, email } = req.body;
   const { otp } = req.params;
   try {
-    const { hash, salt } = hashPassword(password);
-    await updateOne("Users", {
-      passwordHash: hash,
-      passwordSalt: salt,
-    });
+    // if(otp!=process.env.OTP) throw new Error ("Invalid otp")
+    //we have to verify otp
+    const { hash, salt } = await hashPassword(newPassword);
+    await updateOne(
+      "Users",
+      { email },
+      {
+        passwordHash: hash,
+        passwordSalt: salt,
+      }
+    );
     res.status(400).json({
       status: true,
       message: resetCustomerPasswordSuccessful || "an error occurred",
-      otp: _otp,
+      // otp: _otp,
     });
   } catch (error) {
     console.log(error);
