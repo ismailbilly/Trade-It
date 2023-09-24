@@ -7,15 +7,15 @@ const client = new MongoClient(url);
 let Db;
 
 const connect = async () => {
-    try {
-        let con = await client.connect();
-        Db = con.db(dbname);
-        console.log(`connected to Db:${Db.databaseName}.`);
-        return Db;
-    } catch (error) {
-        //console.log(`App cannot start this time as database connect cannot be established.`)
-        return false;
-    }
+  try {
+    let con = await client.connect();
+    Db = con.db(dbname);
+    console.log(`connected to Db:${Db.databaseName}.`);
+    return Db;
+  } catch (error) {
+    //console.log(`App cannot start this time as database connect cannot be established.`)
+    return false;
+  }
 };
 
 const getDb = () => {

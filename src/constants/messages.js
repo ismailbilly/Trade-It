@@ -5,4 +5,5 @@ module.exports = {
   OtpSentSuccessfully: "An otp has been sent to your email/phone",
   OtpResentSentSuccessfully: "We just resent your otp to email",
   CustomerCreated: "Account Created. Otp successfully sent",
+  resetCustomerPasswordSuccessful: "Your password has been reset successfully"
 };

@@ -3,7 +3,7 @@ const Joi = require("joi");
 const create = Joi.object({
   surname: Joi.string().required(),
   othernames: Joi.string().required(),
-  email: Joi.string().email({ minDomainSegments: 2 }),
+  email: Joi.string().email({ minDomainSegments: 2 }).required(),
   phone_number: Joi.string().min(11).required().label("Phone number").messages({
     "string.empty": `"Phone Number" cannot be an empty`,
     "string.min": `"Phone Number should have length of 11 digits`,
@@ -26,8 +26,8 @@ const create = Joi.object({
   signup_channel: Joi.string().optional(),
 });
 
-const completeForgotPassword = Joi.object({
-  email: Joi.string().email({ minDomainSegments: 2 }),
+const validateCompleteForgotPassword = Joi.object({
+  // email: Joi.string().email({ minDomainSegments: 2 }),
   newPassword: Joi.string()
     .min(8)
     .regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,30}$/)
@@ -57,10 +57,13 @@ const updateUserInfo = Joi.object({
   accountNumber: Joi.string().required(),
   bankName: Joi.string().required(),
 });
-
+const validateEmail = Joi.object({
+  email: Joi.string().email({ minDomainSegments: 2 }).required(),
+});
 module.exports = {
   create,
-  completeForgotPassword,
   changePassword,
   updateUserInfo,
+  validateEmail,
+  validateCompleteForgotPassword,
 };

@@ -31,15 +31,15 @@ app.use(errorHandler); //This is from morgan
 const port = process.env.PORT || 4500;
 
 //DATABASE
-db.connect();
 
 //ROUTES
 app.use("/", authRoutes);
 
 //Server
-app.listen(port, () => {
+app.listen(port, async () => {
   logger.info({ message: `...app listening on port ${port}` });
   console.log(`Server is running on port http://localhost:${port}`);
+  await db.connect().then((res) => console.log("res"));
 });
 
 /// catch 404 and forwarding to error handler
