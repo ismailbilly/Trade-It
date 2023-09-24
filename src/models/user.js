@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const xwapitDB_collections = require("../repository/collections");
 const UserSchema = new mongoose.Schema({
-    
   lastname: {
     type: String,
     required: true,
   },
-  othername: {
+  othernames: {
     type: String,
     required: true,
   },
@@ -14,17 +13,25 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
+  password_hash: {
     type: String,
     required: true,
   },
-  phone: {
+  password_salt: {
     type: String,
     required: true,
+  },
+  phone_number: {
+    type: String,
+    required: true,
+  },
+  referral_code: {
+    type: String,
+    unique: true,
   },
 });
 
 //const Users = mongoose.model(xwapitDB.users, UserSchema);
 
 //module.exports = { Users };
-module.exports = mongoose.model(Users, UserSchema);
+module.exports = mongoose.model("Users", UserSchema);

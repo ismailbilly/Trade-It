@@ -5,3 +5,40 @@
 [31merror[39m: POST /user 500 - 44.619 ms - message: -
 [31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"mufa@gmail.com","password":"tiktok"}
 [31merror[39m: POST /user 400 - 22.027 ms - message: -
+[31merror[39m: POST /user 500 - 2.701 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"muda@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 16.309 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"muda@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 5.001 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"Yuf","othername":"Oluwaseun","email":"muda@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 4.365 ms - message: -
+[31merror[39m: POST /user 500 - 7.514 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilaa","othername":"Oluwaseun","email":"hilaa@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 4.260 ms - message: -
+[31merror[39m: POST /user 500 - 5.436 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hila","othername":"Oluwaseun","email":"hila@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 21.412 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hil","othername":"Oluwaseun","email":"hil@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 7.802 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hil","othername":"Oluwaseun","email":"hil@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 20.252 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hil","othername":"Oluwaseun","email":"hil@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 6.197 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hil","othername":"Oluwaseun","email":"hil@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 18.695 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hil","othername":"Oluwaseun","email":"hil@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 21.767 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othername":"Oluwaseun","email":"hilda@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 22.928 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othername":"Oluwaseun","email":"hilda@gmail.com","password":"tiktok"}
+[31merror[39m: POST /user 400 - 26.662 ms - message: -
+[31merror[39m: POST /user 400 - 10.468 ms - message: -
+[31merror[39m: POST /user 400 - 1.584 ms - message: -
+[31merror[39m: POST /user 400 - 4.541 ms - message: -
+[31merror[39m: POST /user 400 - 2.243 ms - message: -
+[31merror[39m: POST /user 400 - 0.870 ms - message: -
+[31merror[39m: POST /user 400 - 0.510 ms - message: -
+[31merror[39m: POST /user 400 - 1.337 ms - message: -
+[31merror[39m: POST /user 400 - 1.193 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othernames":"Oluwaseun","email":"hild@gmail.com","password":"titoker!@","phone_number":"08029270169"}
+[31merror[39m: POST /user 400 - 22.904 ms - message: -

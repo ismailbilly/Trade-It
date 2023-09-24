@@ -10,8 +10,8 @@ const create = Joi.object({
     "any.required": `"hone Number" is a required field`,
   }),
   password: Joi.string()
-    .min(8)
-    .regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{8,30}$/)
+    .min(6)
+    // .regex(/^(?=\S*[a-z])(?=\S*[A-Z])(?=\S*\d)(?=\S*[^\w\s])\S{6,30}$/)
     .required()
     .label("Password")
     .messages({
@@ -21,7 +21,7 @@ const create = Joi.object({
       "object.regex": `Must have at least 8 characters`,
       "string.pattern.base": `Password must contain at least a number, letter and special characters`,
     }),
-  referrer_code: Joi.string().optional(),
+  referral_code: Joi.string().optional(),
   who_referred_customer: Joi.string().optional(),
   signup_channel: Joi.string().optional(),
 });
