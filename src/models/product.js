@@ -41,6 +41,7 @@ const productSchema = new Schema(
     },
     approval_status: {
       type: String,
+      default: "pending",
       enum: {
         values: ["approved", "declined", "pending"],
         message: "{VALUE} is not supported",
