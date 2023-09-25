@@ -13,7 +13,9 @@ const connect = async () => {
     console.log(`connected to Db:${Db.databaseName}.`);
     return Db;
   } catch (error) {
-    //console.log(`App cannot start this time as database connect cannot be established.`)
+    console.log(
+      `App cannot start this time as database connect cannot be established. ${error}`
+    );
     return false;
   }
 };
