@@ -14,6 +14,7 @@ const authRoutes = require("./src/routes/auth");
 const logger = require("./src/config/logger");
 const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
+const { redisClient } = require("../Trade-It/src/config/redis");
 // Configurations
 const app = express();
 app.use(helmet()); // set security HTTP headers
@@ -29,6 +30,7 @@ app.use(errorHandler); //This is from morgan
 
 //PORT
 const port = process.env.PORT || 4500;
+redisClient.connect();
 
 //DATABASE
 

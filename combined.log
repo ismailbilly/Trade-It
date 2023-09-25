@@ -534,3 +534,16 @@ info: POST /login - - - ms
 [31merror[39m: POST /user/user 400 - 18.063 ms - message: -
 [32minfo[39m: POST /user/user 201 - 339.371 ms
 [32minfo[39m: POST /user/user 201 - 194.003 ms
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[31merror[39m: POST /user/user 400 - 112.189 ms - message: -
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[31merror[39m: POST /user/user 400 - 23.098 ms - message: -
+[32minfo[39m: POST /user/user 201 - 104.107 ms
+[31merror[39m: POST /user/user 400 - 5.646 ms - message: -

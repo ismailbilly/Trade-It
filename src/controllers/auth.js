@@ -4,11 +4,12 @@ const { v4: uuidv4 } = require("uuid");
 const successHandler = require("../utils/successResponse");
 const User = require("../models/user");
 const logger = require("../config/logger");
+const { redisClient } = require("../config/redis");
 const {
   CustomerCreated,
   resetCustomerPasswordSuccessful,
   CustomerExist,
-  InvalidCredentials
+  InvalidCredentials,
 } = require("../constants/messages");
 const {
   hashPassword,
@@ -74,8 +75,22 @@ const register = async (req, res) => {
     const checkIfUserExist = await findOne("Users", {
       email: email,
     });
-  
-    if (checkIfUserExist) throw new Error(CustomerExist);
+
+    if (checkIfUserExist) {
+      logger.error({
+        message: `Customer credentials existed. details supplied is ${JSON.stringify(
+          req.body
+        )}`,
+        status: 422,
+        method: req.method,
+        ip: req.ip,
+        url: req.originalUrl,
+      });
+
+      const err = new Error("User already exists");
+      err.status = 400;
+      return next(err);
+    }
 
     const user_id = uuidv4();
     const { hash, salt } = await hashPassword(password);
@@ -84,18 +99,18 @@ const register = async (req, res) => {
       surname,
       othernames,
       email,
-      phone:phone_number,
+      phone: phone_number,
       passwordHash: hash,
       passwordSalt: salt,
     });
 
     const _otp = generateOtp(6);
-   
-    // redisClient.set(`${email}`, JSON.stringify(_otp), {
-    //   EX: 60 * 5, //seconds
-    //   NX: true,
-    // });
-    
+
+    redisClient.set(`${email}`, JSON.stringify(_otp), {
+      EX: 60 * 5, //seconds
+      NX: true,
+    });
+
     const user = await insertOne("Users", newUser);
 
     // readFileAndSendEmail(
@@ -111,10 +126,11 @@ const register = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
+    // res.status(400).json({
+    //   status: false,
+    //   message: error.message,
+    // });
   }
 };
 
@@ -124,33 +140,31 @@ const login = async (req, res) => {
     const checkIfUserExist = await findOne("Users", {
       email: email,
     });
-  
+
     if (!checkIfUserExist) throw new Error(InvalidCredentials);
-    
+
     //check if  user is verified
     //check if user is verified
-   
+
     //compare password
     const checkPasswordMatch = await comparePassword(
       password,
       checkIfUserExist.passwordHash
     );
-    if (!checkPasswordMatch) 
-      throw new Error("Incorrect Password");
-   console.log('we are here')
-      
+    if (!checkPasswordMatch) throw new Error("Incorrect Password");
+    console.log("we are here");
+
     // using jwt to generate token
-    const token =  await jwt.sign(
+    const token = await jwt.sign(
       {
         id: uuidv4(),
         email: email,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
-
     );
-      // console.log(token)
-      console.log("I am here")
+    // console.log(token)
+    console.log("I am here");
     res.status(200).json({
       status: "success",
       message: "User logged in successfully",
@@ -182,12 +196,10 @@ const editUser = async (req, res) => {
   }
 };
 
-
 const startForgetPassword = async (req, res, next) => {
   const { email } = req.body;
 
   try {
-    
     const checkIfUserExist = await findQuery("Users", { email: email });
 
     if (checkIfUserExist.length < 1) throw new Error("user not found");
