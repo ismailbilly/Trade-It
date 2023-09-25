@@ -522,3 +522,10 @@ info: POST /login - - - ms
 [32minfo[39m: ...app listening on port 5000
 [32minfo[39m: ...app listening on port 5000
 [32minfo[39m: ...app listening on port 5000
+[32minfo[39m: ...app listening on port 5000
+[31merror[39m: POST /user/login 500 - 127.306 ms - message: -
+[31merror[39m: POST /user/login 500 - 222.890 ms - message: -
+[32minfo[39m: ...app listening on port 5000
+[32minfo[39m: POST /user/login 200 - 114.844 ms
+[32minfo[39m: POST /user/login 200 - 246.408 ms
+[32minfo[39m: ...app listening on port 5000

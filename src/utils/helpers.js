@@ -11,9 +11,20 @@ const hashPassword = async (password) => {
   });
 };
 
+// const comparePassword = async (password, hashPassword) => {
+//   return new Promise((resolve, reject) => {
+//     return  bcrypt.compare(password, hashPassword);
+//   });
+// };
+
 const comparePassword = async (password, hashPassword) => {
   return new Promise((resolve, reject) => {
-    return  bcrypt.compare(password, hashPassword);
+    let result = bcrypt.compare(password, hashPassword);
+    if (result) {
+      resolve(result);
+    } else {
+      reject(err);
+    }
   });
 };
 

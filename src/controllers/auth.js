@@ -135,7 +135,7 @@ const login = async (req, res) => {
       password,
       checkIfUserExist.passwordHash
     );
-    if (checkPasswordMatch) 
+    if (!checkPasswordMatch) 
       throw new Error("Incorrect Password");
    console.log('we are here')
       
