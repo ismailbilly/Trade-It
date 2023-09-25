@@ -547,3 +547,33 @@ info: POST /login - - - ms
 [31merror[39m: POST /user/user 400 - 23.098 ms - message: -
 [32minfo[39m: POST /user/user 201 - 104.107 ms
 [31merror[39m: POST /user/user 400 - 5.646 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: Customer credentials existed. details supplied is {"surname":"qwrt","othernames":"asdfghjk","phone_number":"09873232345678","password":"zxcnm@!45H","email":"qwie1@gmail.com"}
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: Customer credentials existed. details supplied is {"surname":"qwrt","othernames":"asdfghjk","phone_number":"09873232345678","password":"zxcnm@!45H","email":"qwie1@gmail.com"}
+[31merror[39m: POST /user/user 400 - 30.479 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: Customer credentials existed. details supplied is {"surname":"qwrt","othernames":"asdfghjk","phone_number":"09873232345678","password":"zxcnm@!45H","email":"qwie1@gmail.com"}
+[31merror[39m: POST /user/user 400 - 26.326 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: Customer credentials existed. details supplied is {"surname":"qwrt","othernames":"asdfghjk","phone_number":"09873232345678","password":"zxcnm@!45H","email":"qwie1@gmail.com"}
+[31merror[39m: POST /user/user 400 - 72.544 ms - message: -
+[32minfo[39m: POST /user/user 200 - 11.342 ms
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: POST /user/user 200 - 69.043 ms
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: phone is not valid 09873232345678
+[32minfo[39m: POST /user/user 200 - 53.880 ms
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: phone is not valid 09873232345678
+[31merror[39m: POST /user/user 400 - 24.447 ms - message: -
+[32minfo[39m: POST /user/user 201 - 141.114 ms
+[31merror[39m: Customer credentials existed. details supplied is {"surname":"qwrt","othernames":"asdfghjk","phone_number":"08167396418","password":"zxcnm@!45H","email":"qwie18@gmail.com"}
+[31merror[39m: POST /user/user 400 - 6.591 ms - message: -
+[31merror[39m: POST /user/user 400 - 6.812 ms - message: -
+[31merror[39m: POST /user/user 400 - 0.951 ms - message: -
+[31merror[39m: phone is not valid 0816739641737
+[31merror[39m: POST /user/user 400 - 8.063 ms - message: -
+[32minfo[39m: POST /user/user 201 - 143.984 ms
