@@ -14,7 +14,7 @@ const createCategory = async (req, res, next) => {
     const { error } = validateCreateCategory(req.body);
     if (error != undefined) throw new Error(error.details[0].message);
 
-    const checkIfcategoryExists = await Categories.findQuery({
+    const checkIfcategoryExists = await Categories.findOne({
       $or: [
         { category_id: category_id },
         { category_name: category_name },
