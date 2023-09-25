@@ -137,3 +137,5 @@ error: POST /login 500 - 24.487 ms - message: -
 error: POST /login 500 - 19.099 ms - message: -
 [31merror[39m: POST /user/login 500 - 127.306 ms - message: -
 [31merror[39m: POST /user/login 500 - 222.890 ms - message: -
+[31merror[39m: POST /user 404 - 4.825 ms - message: -
+[31merror[39m: POST /user/user 400 - 18.063 ms - message: -
