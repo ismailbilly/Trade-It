@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
-const Product = require("../models/product");
+const xwapitDB_collections = require("../repository/collections");
+const Products = require("../models/product");
 const {
   productCreated,
   productDeleted,
