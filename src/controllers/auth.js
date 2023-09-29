@@ -157,7 +157,7 @@ const login = async (req, res) => {
     // using jwt to generate token
     const token = await jwt.sign(
       {
-        id: uuidv4(),
+       
         email: email,
       },
       process.env.JWT_SECRET,
