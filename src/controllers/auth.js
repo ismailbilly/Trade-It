@@ -10,6 +10,7 @@ const {
   resetCustomerPasswordSuccessful,
   CustomerExist,
   InvalidCredentials,
+  invalidPhone,
 } = require("../constants/messages");
 const {
   hashPassword,
@@ -69,7 +70,7 @@ const Users = require("../models/user");
 //     createUser
 // }
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   const { surname, othernames, email, phone_number, password } = req.body;
   try {
     const checkIfUserExist = await findOne("Users", {
@@ -87,11 +88,24 @@ const register = async (req, res) => {
         url: req.originalUrl,
       });
 
-      const err = new Error("User already exists");
+      const err = new Error(CustomerExist);
       err.status = 400;
       return next(err);
     }
+    const validatePhone = phoneValidation(phone_number);
+    if (!validatePhone) {
+      logger.error({
+        message: `phone is not valid ${phone_number}`,
+        status: 422,
+        method: req.method,
+        ip: req.ip,
+        url: req.originalUrl,
+      });
 
+      const err = new Error(invalidPhone);
+      err.status = 400;
+      return next(err);
+    }
     const user_id = uuidv4();
     const { hash, salt } = await hashPassword(password);
     const newUser = new User({
