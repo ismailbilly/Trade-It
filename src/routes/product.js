@@ -17,7 +17,7 @@ router
   )
   .patch(
     "/update-product",
-    validationMiddleware(validationData(updateCategorySchema)),
+    validationMiddleware(validationData.updateCategorySchema),
     updateProduct
   )
   .get("/get-product", getProduct)

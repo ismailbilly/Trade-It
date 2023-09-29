@@ -6,6 +6,7 @@ const {
   productDeleted,
   productUpdated,
 } = require("../constants/messages");
+const { insertOne } = require("../repository");
 
 const createProduct = async (req, res, next) => {
   const {
@@ -19,8 +20,9 @@ const createProduct = async (req, res, next) => {
   } = req.body;
 
   try {
-    const newProduct = new Product({
+    const newProduct = new Products({
       product_id: uuidv4(),
+      user_id,
       product_name,
       quantity_available,
       trade_preferences,
@@ -29,10 +31,11 @@ const createProduct = async (req, res, next) => {
       condition,
       additional_note,
     });
-    await newProduct.save();
+    await insertOne("Products", newProduct);
     res.status(201).json({
       status: true,
       message: productCreated,
+      data: newProduct,
     });
   } catch (error) {
     res.status(400).json({
@@ -44,7 +47,7 @@ const createProduct = async (req, res, next) => {
 const updateProduct = async (req, res, next) => {
   const { user_id } = req.params;
   try {
-    await Product.updateOne({ user_id }, req.body);
+    await Products.updateOne({ user_id }, req.body);
     res.status(200).json({
       status: true,
       message: productUpdated,

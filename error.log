@@ -21,3 +21,11 @@
 [31merror[39m: POST /user 400 - 56.434 ms - message: -
 [31merror[39m: POST /user 400 - 12.260 ms - message: -
 [31merror[39m: POST /user 400 - 8.484 ms - message: -
+[31merror[39m: GET /api/v1/product/create-product 404 - 7.567 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 404 - 1.051 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 404 - 3.357 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 5.970 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 1.813 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 5.064 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 1.402 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 3.913 ms - message: -

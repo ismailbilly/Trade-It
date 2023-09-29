@@ -35,7 +35,8 @@ db.connect();
 
 //ROUTES
 app.use("/", authRoutes);
-app.use("api/v1/category", require("./src/routes/category"));
+app.use("/api/v1/product", require("./src/routes/product"));
+app.use("/api/v1/category", require("./src/routes/category"));
 //Server
 app.listen(port, () => {
   logger.info({ message: `...app listening on port http://localhost:${port}` });

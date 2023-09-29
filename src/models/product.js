@@ -8,7 +8,7 @@ const productSchema = new Schema(
     },
     user_id: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Users",
     },
     product_name: {
       type: String,
@@ -39,6 +39,10 @@ const productSchema = new Schema(
     images: {
       type: String,
     },
+    // price: {
+    //   type: String,
+    //   required: true,
+    // },
     approval_status: {
       type: String,
       default: "pending",
@@ -54,9 +58,17 @@ const productSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    createdAt: {
+      type: Date,
+      default: new Date(),
+    },
+    updatedAt: {
+      type: Date,
+      default: new Date(),
+    },
   },
   { timestamps: true }
 );
 
-const Product = model("Product", productSchema);
+const Product = model("Products", productSchema);
 module.exports = Product;
