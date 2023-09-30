@@ -16,11 +16,11 @@ router
     createProduct
   )
   .patch(
-    "/update-product",
+    "/update-product/:_id",
     validationMiddleware(validationData.updateCategorySchema),
     updateProduct
   )
   .get("/get-product", getProduct)
-  .delete("/delete-product", deleteProduct);
+  .delete("/delete-product/:_id", deleteProduct);
 
 module.exports = router;

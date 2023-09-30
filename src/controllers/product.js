@@ -6,7 +6,7 @@ const {
   productDeleted,
   productUpdated,
 } = require("../constants/messages");
-const { insertOne } = require("../repository");
+const { insertOne, findOne, updateOne } = require("../repository");
 
 const createProduct = async (req, res, next) => {
   const {
@@ -45,9 +45,9 @@ const createProduct = async (req, res, next) => {
   }
 };
 const updateProduct = async (req, res, next) => {
-  const { user_id } = req.params;
+  const { product_id } = req.params;
   try {
-    await Products.updateOne({ user_id }, req.body);
+    await updateOne("Produccts", { product_id }, req.body);
     res.status(200).json({
       status: true,
       message: productUpdated,
@@ -62,7 +62,8 @@ const updateProduct = async (req, res, next) => {
 const getProduct = async (req, res, next) => {
   const { product_id } = req.params;
   try {
-    const data = await Product.findOne({ product_id });
+    const data = await findOne(Products, { product_id });
+
     res.status(200).json({
       status: true,
       message: getCategories,
@@ -75,8 +76,10 @@ const getProduct = async (req, res, next) => {
     });
   }
 };
-const deleteProduct = (req, res, next) => {
+const deleteProduct = async (req, res, next) => {
+  const { product_id } = req.params;
   try {
+    await updateOne(Products, { product_id }, { is_deleted: true });
     res.status(200).json({
       status: true,
       message: productDeleted,
