@@ -6,10 +6,12 @@ const {
   productDeleted,
   productUpdated,
   getProductMessage,
+  productNotFound,
 } = require("../constants/messages");
 const { insertOne, findOne, updateOne } = require("../repository");
 
 const createProduct = async (req, res, next) => {
+  const { user_id } = req.params;
   const {
     product_name,
     quantity_available,
@@ -23,7 +25,7 @@ const createProduct = async (req, res, next) => {
   try {
     const newProduct = new Products({
       product_id: uuidv4(),
-      user_id: "6510688ad8f3f2bdddb22df8",
+      user_id: "",
       product_name,
       quantity_available,
       trade_preferences,
@@ -45,10 +47,8 @@ const createProduct = async (req, res, next) => {
 const updateProduct = async (req, res, next) => {
   const { product_id } = req.params;
   try {
-    if (!product_id) throw new Error(`Product_id is required`);
-
     const data = await findOne(xwapitDB_collections.products, { product_id });
-    if (!data) throw new Error(`Product not found`);
+    if (!data) throw new Error(productNotFound);
 
     await updateOne(xwapitDB_collections.products, { product_id }, req.body);
     res.status(200).json({
@@ -63,7 +63,7 @@ const getProduct = async (req, res, next) => {
   const { product_id } = req.params;
   try {
     const data = await findOne(xwapitDB_collections.products, { product_id });
-
+    if (!data) throw new Error(productNotFound);
     res.status(200).json({
       status: true,
       message: getProductMessage,

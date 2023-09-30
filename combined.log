@@ -278,3 +278,15 @@ info: ...app listening on port 4500
 [31merror[39m: GET /api/v1/category/get-category/fj 400 - 15.858 ms - message: -
 [32minfo[39m: GET /api/v1/category/get-category/d9c305d0-bea1-42e2-b66e-d546d6da35f6 200 - 3.906 ms
 [32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 200 - 229.281 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 54.714 ms - message: -
+[31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 5.179 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296

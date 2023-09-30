@@ -54,3 +54,5 @@
 [31merror[39m: GET /api/v1/category/get-category 400 - 22.225 ms - message: -
 [31merror[39m: GET /api/v1/category/get-category/ 404 - 4.476 ms - message: -
 [31merror[39m: GET /api/v1/category/get-category/fj 400 - 15.858 ms - message: -
+[31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 54.714 ms - message: -
+[31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 5.179 ms - message: -

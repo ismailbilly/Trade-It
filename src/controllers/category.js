@@ -6,6 +6,7 @@ const {
   categoryUpdated,
   getCategoriesMessage,
   getCategoryMessage,
+  categoryNotFound,
 } = require("../constants/messages");
 const { insertOne, updateOne, find, findOne } = require("../repository/index");
 const createCategory = async (req, res, next) => {
@@ -25,10 +26,7 @@ const createCategory = async (req, res, next) => {
       message: categoryCreated,
     });
   } catch (error) {
-    res.status(400).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 const updateCategory = async (req, res, next) => {
@@ -36,7 +34,7 @@ const updateCategory = async (req, res, next) => {
 
   try {
     const data = await findOne(xwapitDB_collections.category, { category_id });
-    if (!data) throw new Error(`category not found`);
+    if (!data) throw new Error(categoryNotFound);
 
     await updateOne(xwapitDB_collections.category, { category_id }, req.body);
     res.status(200).json({
@@ -44,10 +42,7 @@ const updateCategory = async (req, res, next) => {
       message: categoryUpdated,
     });
   } catch (error) {
-    res.status(400).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 const getCategory = async (req, res, next) => {
@@ -55,17 +50,14 @@ const getCategory = async (req, res, next) => {
   try {
     const data = await findOne(xwapitDB_collections.category, { category_id });
 
-    if (!data) throw new Error(`category not found`);
+    if (!data) throw new Error(categoryNotFound);
     res.status(200).json({
       status: true,
       message: getCategoryMessage,
       data,
     });
   } catch (error) {
-    res.status(400).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 const getCategories = async (req, res, next) => {
@@ -77,10 +69,7 @@ const getCategories = async (req, res, next) => {
       data,
     });
   } catch (error) {
-    res.status(400).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 module.exports = { createCategory, updateCategory, getCategory, getCategories };

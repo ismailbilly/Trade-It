@@ -7,4 +7,6 @@ module.exports = {
   productUpdated: "Product succesfully updated",
   productDeleted: "Product succesfully deleted",
   getProductMessage: "product fetched successfully",
+  productNotFound: "Product not found",
+  categoryNotFound: "Category not found",
 };
