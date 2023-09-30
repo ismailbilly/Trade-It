@@ -1,25 +1,25 @@
 const { v4: uuidv4 } = require("uuid");
 const Category = require("../models/category");
-
+const xwapitDB_collections = require("../repository/collections");
 const {
   categoryCreated,
   categoryUpdated,
   getCategoriesMessage,
   getCategoryMessage,
 } = require("../constants/messages");
-
+const { insertOne, updateOne, find, findOne } = require("../repository/index");
 const createCategory = async (req, res, next) => {
-  const { categoty, desciption } = req.body;
+  const { category, desciption } = req.body;
   const { user_id } = req.params;
   try {
     const newCategory = new Category({
       category_id: uuidv4(),
       user_id,
-      categoty,
+      category,
       desciption,
     });
-    await newCategory.save();
 
+    await insertOne(xwapitDB_collections.category, newCategory);
     res.status(201).json({
       status: true,
       message: categoryCreated,
@@ -32,11 +32,13 @@ const createCategory = async (req, res, next) => {
   }
 };
 const updateCategory = async (req, res, next) => {
-  const { user_id, category_id } = req.params;
+  const { category_id } = req.params;
 
   try {
-    req.body.user_id = user_id;
-    await Category.updateOne({ category_id }, req.body);
+    const data = await findOne(xwapitDB_collections.category, { category_id });
+    if (!data) throw new Error(`category not found`);
+
+    await updateOne(xwapitDB_collections.category, { category_id }, req.body);
     res.status(200).json({
       status: true,
       message: categoryUpdated,
@@ -51,7 +53,9 @@ const updateCategory = async (req, res, next) => {
 const getCategory = async (req, res, next) => {
   const { category_id } = req.params;
   try {
-    const data = await Category.findOne({ category_id });
+    const data = await findOne(xwapitDB_collections.category, { category_id });
+
+    if (!data) throw new Error(`category not found`);
     res.status(200).json({
       status: true,
       message: getCategoryMessage,
@@ -66,7 +70,7 @@ const getCategory = async (req, res, next) => {
 };
 const getCategories = async (req, res, next) => {
   try {
-    const data = await Category.find({});
+    const data = await find(xwapitDB_collections.category);
     res.status(200).json({
       status: true,
       message: getCategoriesMessage,

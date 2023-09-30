@@ -16,11 +16,11 @@ router
     createCategory
   )
   .patch(
-    "/update-user",
+    "/update-category/:category_id",
     validationMiddleware(validationData.updateCategorySchema),
     updateCategory
   )
-  .get("/get-category", getCategory)
+  .get("/get-category/:category_id", getCategory)
   .get("/get-categories", getCategories);
 
 module.exports = router;

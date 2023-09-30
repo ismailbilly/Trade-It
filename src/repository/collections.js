@@ -1,6 +1,7 @@
 const xwapitDB_collections = {
   users: "Users",
-  produts: "Produts",
+  products: "Products",
+  category: "Category",
 };
 
 module.exports = xwapitDB_collections;
