@@ -4,5 +4,4 @@ const redisHost = process.env.HOST || '127.0.0.1'
 const redisClient = redis.createClient(redisPort, redisHost)
 
 
-
 module.exports = {redisClient} 

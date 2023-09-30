@@ -29,6 +29,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
+  is_email_verified: {
+    type: Boolean,
+    default: false,
+  },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
 });
 
 //const Users = mongoose.model(xwapitDB.users, UserSchema);

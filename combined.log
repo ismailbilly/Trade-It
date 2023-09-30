@@ -133,3 +133,334 @@
 [31merror[39m: POST /user 400 - 22.904 ms - message: -
 [32minfo[39m: POST /user 201 - 105.163 ms
 [32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 107.385 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othernames":"Oluwaseun","email":"hildiktok@gmail.com","password":"titoker!@","phone_number":"08029270179"}
+[31merror[39m: POST /user 400 - 41.965 ms - message: -
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othernames":"Oluwaseun","email":"hildiktok@gmail.com","password":"titoker!@","phone_number":"08029270179"}
+[31merror[39m: POST /user 400 - 9.173 ms - message: -
+[31merror[39m: POST /user 500 - 239.098 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 253.538 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Customer credentials existed. details supplied is {"lastname":"hilda","othernames":"Oluwaseun","email":"hildiktok@gmail.com","password":"titoker!@","phone_number":"08029270179"}
+[31merror[39m: POST /user 400 - 26.516 ms - message: -
+[31merror[39m: POST /user 500 - 223.535 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 245.285 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 330.156 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 210.581 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 215.532 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 5.114 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 14.186 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 5.256 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 6.526 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 5.449 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 6.913 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 8.159 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 5.307 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 6.820 ms
+[32minfo[39m: POST /user 201 - 2.723 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 2.150 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 3.386 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 7.826 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 5.973 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 5.551 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 2.442 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 4.622 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 3528.776 ms
+[32minfo[39m: POST /user 201 - 2309.043 ms
+[32minfo[39m: POST /user 201 - 2471.010 ms
+[32minfo[39m: POST /user 201 - 2844.057 ms
+[32minfo[39m: POST /user 201 - 3575.167 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 2.812 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 2.968 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: POST /user 500 - 2.860 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 3096.555 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 3204.803 ms
+[32minfo[39m: POST /user 201 - 3244.740 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 12218.926 ms
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"287256"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/287256 500 - 2.898 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"287256"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/287256 500 - 5.100 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"287256"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/287256 500 - 8.058 ms - message: -
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 2.889 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 6.715 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 6.758 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","token":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 7.114 ms - message: -
+[31merror[39m: GET /verify?email=fatimaakinwunmi2008@gmail.com%20&otp=156889 404 - 0.451 ms - message: -
+[31merror[39m: GET /verify?email=fatimaakinwunmi2008@gmail.com&otp=156889 404 - 0.308 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 99.800 ms
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: GET /verify?email=fatimaakinwunmi2008@gmail.com&otp=156889 404 - 2.048 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: GET /verify?email=fatimaakinwunmi2008@gmail.com&otp=156889 404 - 2.091 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: GET /verify?email=bola@gmail.com 404 - 2.621 ms - message: -
+[31merror[39m: GET /verify?email=bola 404 - 0.561 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","otp":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 8.210 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","otp":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 8.540 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","otp":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 6.539 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","otp":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 7.227 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 4.573 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {"email":"fatimaakinwunmi2008@gmail.com","otp":"156889"}
+[31merror[39m: GET /verify/fatimaakinwunmi2008@gmail.com/156889 500 - 8.558 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {}
+[31merror[39m: POST /verify 500 - 7.586 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[31merror[39m: Unable to verify email. details supplied is {}
+[31merror[39m: POST /verify 500 - 8.208 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 94.776 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 102.406 ms
+[31merror[39m: POST /verify 500 - 3.649 ms - message: -
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /verify 200 - 21.814 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 141.937 ms
+[32minfo[39m: POST /user 201 - 89.563 ms
+[32minfo[39m: GET /verify/fatimaakinwunmi2008@gmail.com/467332 200 - 6.891 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000

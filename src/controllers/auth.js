@@ -1,59 +1,63 @@
-//const Users = require("../models/user");
-//const xwapitDB_collections = require("../repository/collections");
-//const successHandler = require("../utils/successResponse");
-const { hashMyPassword, generateReferralCode } = require("../utils");
-const bcrypt = require("bcrypt");
-const logger = require("../config/logger");
-const { findQuery, insertOne } = require("../repository");
+// const login= async(req, res, next) => {
+//   const { email, password } = req.body;
 
-const createUser = async (req, res, next) => {
-  const { lastname, othernames, email, password, phone_number } = req.body;
-  try {
-    
-    console.log(generateReferralCode(4));
-    
-    let user = await findQuery("Users", {
-      email: email,
-    });
-    if (user.length > 0) {
-      logger.error({
-        message: `Customer credentials existed. details supplied is ${JSON.stringify(
-          req.body
-        )}`,
-        status: 422,
-        method: req.method,
-        url: req.originalUrl,
-      });
+//   try {
+//     let user = await findQuery("Users", {
+//       email: email,
+//     });
+//     //if user signed up, but did not veerify their otp, we prompt them at login
+//     UserModel.findOne({ email })
+//       .then((user) => {
+//         bcrypt
+//           .compare(password, user.password)
+//           .then((passwordCheck) => {
+//             if (!passwordCheck)
+//               return res.status(400).send({
+//                 error: "Don't have Password",
+//               });
 
-      const err = new Error("User already exists");
-      err.status = 400;
-      return next(err);
-    } else {
-      const passwordHashAndSalt = await hashMyPassword(password);
-      const newUser = {
-        lastname,
-        othernames,
-        email,
-        phone_number,
-        password_hash: passwordHashAndSalt[1],
-        password_salt: passwordHashAndSalt[0],
-        referrer_code: generateReferralCode(4),
-      };
+//             if (!user.isVerified) {
+//               // Generate a random OTP using the otp-generator package
+//               const otp = otpGenerator.generate(4, {
+//                 lowerCaseAlphabets: false,
+//                 upperCaseAlphabets: false,
+//                 specialChars: false,
+//               });
 
-      user = await insertOne("Users", newUser);
-      console.log(user);
+//               // Store the OTP in Redis, with the user's email as the key
+//               client.set(email, otp);
 
-      res.status(201).json({
-        status: true,
-        message: "Account created",
-        data: "Lets talk",
-      });
-    }
-  } catch (error) {
-    next(error);
-  }
-};
+//               return res.status(400).send({
+//                 error:
+//                   "User is not verified, please finish verification using this OTP",
+//                 OTP: otp,
+//               });
+//             }
 
-module.exports = {
-  createUser,
-};
+//             // create jwt token
+//             const token = jwt.sign(
+//               {
+//                 userId: user._id,
+//                 username: user.username,
+//               },
+//               process.env.JWT_SECRET,
+//               { expiresIn: "24h" }
+//             );
+
+//             return res.status(200).send({
+//               msg: "Login Successful...!",
+//               user: user,
+//               token,
+//             });
+//           })
+//           .catch((error) => {
+//             return res.status(400).send({ error: "Password does not Match" });
+//           });
+//       })
+//       .catch((error) => {
+//         return res.status(404).send({ error: "Username not Found" });
+//       });
+//   } catch (error) {
+//     return res.status(500).send({ error });
+//   }
+// }

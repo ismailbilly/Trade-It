@@ -12,6 +12,7 @@ const { log } = require("winston");
 const db = require("./src/config/database");
 const authRoutes = require("./src/routes/auth");
 const logger = require("./src/config/logger");
+const {redisClient} =require('./src/config/redis')
 const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
 // Configurations
@@ -32,6 +33,13 @@ const port = process.env.PORT || 4500;
 
 //DATABASE
 db.connect();
+//connect to redis
+redisClient.connect().catch(() => {
+    console.log('Redis client not connected');
+    process.exit(1)
+    
+})
+//VIEW
 
 //ROUTES
 app.use("/", authRoutes);
