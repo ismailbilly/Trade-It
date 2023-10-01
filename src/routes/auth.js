@@ -5,13 +5,18 @@ const {
   login,
   startForgetPassword,
   completeForgotPassword,
-  validateLogin
+  verifyOtp,
+  resendOtp,
 } = require("../controllers/auth");
 const validationMiddleware = require("../middleware/validation.js");
 const authorization = require("../middleware/authorization.js");
 const validationData = require("../validation/user.js");
 router.post("/user", validationMiddleware(validationData.create), register);
-router.post("/login",  validationMiddleware(validationData.validateLogin), login);
+router.post(
+  "/login",
+  validationMiddleware(validationData.validateLogin),
+  login
+);
 router.get(
   "/start-forget-password",
   validationMiddleware(validationData.validateEmail),
@@ -22,4 +27,6 @@ router.patch(
   validationMiddleware(validationData.validateCompleteForgotPassword),
   completeForgotPassword
 );
+router.patch("/verify/:email/:otp", verifyOtp);
+router.get("/resend-otp", resendOtp);
 module.exports = router;

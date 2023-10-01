@@ -158,3 +158,15 @@ error: POST /login 500 - 19.099 ms - message: -
 [31merror[39m: POST /user/user 400 - 0.951 ms - message: -
 [31merror[39m: phone is not valid 0816739641737
 [31merror[39m: POST /user/user 400 - 8.063 ms - message: -
+[31merror[39m: PATCH /api/v1/user/verify/email/otp 404 - 11.492 ms - message: -
+[31merror[39m: POST /api/v1/user/user 404 - 3.324 ms - message: -
+[31merror[39m: POST /api/v1/user/create-user 404 - 0.302 ms - message: -
+[31merror[39m: POST /api/v1/user/user 404 - 0.337 ms - message: -
+[31merror[39m: POST /user/user 400 - 8.041 ms - message: -
+[31merror[39m: POST /user/user 400 - 5.010 ms - message: -
+[31merror[39m: POST /user/user 400 - 7.056 ms - message: -
+[31merror[39m: POST /user/user 400 - 2.375 ms - message: -
+[31merror[39m: POST /user/user 400 - 1.027 ms - message: -
+[31merror[39m: GET /resend-otp 404 - 1.468 ms - message: -
+[31merror[39m: GET /user/resend-otp 404 - 3.350 ms - message: -
+[31merror[39m: GET /user/resend-otp 404 - 0.438 ms - message: -

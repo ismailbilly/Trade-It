@@ -62,7 +62,7 @@ const userSchema = new Schema(
     means_of_id: {
       type: String,
     },
-    is_verifid: {
+    is_verified: {
       type: Boolean,
       default: false,
     },
