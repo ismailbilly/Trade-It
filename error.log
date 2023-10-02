@@ -56,3 +56,15 @@
 [31merror[39m: GET /api/v1/category/get-category/fj 400 - 15.858 ms - message: -
 [31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 54.714 ms - message: -
 [31merror[39m: GET /api/v1/product/get-product/d9c305d0-bea1-42e2-b66e-d546d6da35 400 - 5.179 ms - message: -
+[31merror[39m: PATCH /product/create-product 404 - 17.089 ms - message: -
+[31merror[39m: POST /product/create-product 404 - 0.971 ms - message: -
+[31merror[39m: POST /products/create-product 404 - 0.407 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 9.378 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.477 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.859 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.747 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.598 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.744 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.430 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 16.571 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.022 ms - message: -

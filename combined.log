@@ -290,3 +290,22 @@ info: ...app listening on port 4500
 [32minfo[39m: ...app listening on port http://localhost:8296
 [32minfo[39m: ...app listening on port http://localhost:8296
 [32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: PATCH /product/create-product 404 - 17.089 ms - message: -
+[31merror[39m: POST /product/create-product 404 - 0.971 ms - message: -
+[31merror[39m: POST /products/create-product 404 - 0.407 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 9.378 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.477 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.859 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.747 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.598 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 0.744 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.430 ms - message: -
+[32minfo[39m: POST /api/v1/product/create-product 201 - 152.100 ms
+[32minfo[39m: ...app listening on port http://localhost:8296
+[31merror[39m: POST /api/v1/product/create-product 400 - 16.571 ms - message: -
+[31merror[39m: POST /api/v1/product/create-product 400 - 2.022 ms - message: -
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: ...app listening on port http://localhost:8296
+[32minfo[39m: POST /api/v1/product/create-product 201 - 124.613 ms

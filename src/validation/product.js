@@ -24,6 +24,7 @@ const create = Joi.object({
     "string.min": `"Location" should have length of 3 characters`,
     "any.required": `"Location" is a required field`,
   }),
+  images: Joi.array().required(),
   condition: Joi.string()
     .required()
     .valid("old", "new", "fairly used")

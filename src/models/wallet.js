@@ -11,16 +11,15 @@ const walletSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    account_id: {
-      // where is this accountid coming from?
-      type: String,
+    amount_before: {
+      type: Double,
       required: true,
-      unique: true,
+      default: 0.00,
     },
-    account_balance: {
-      type: Number,
+    amount_after: {
+      type: Double,
       required: true,
-      default: 0,
+      default: 0.00,
     },
   },
 

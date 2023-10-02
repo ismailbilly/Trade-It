@@ -37,7 +37,8 @@ const productSchema = new Schema(
       },
     },
     images: {
-      type: String,
+      type: Array,
+      required: true,
     },
     // price: {
     //   type: String,

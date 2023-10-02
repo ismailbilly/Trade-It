@@ -20,6 +20,7 @@ const createProduct = async (req, res, next) => {
     location,
     condition,
     additional_note,
+    images,
   } = req.body;
 
   try {
@@ -33,6 +34,7 @@ const createProduct = async (req, res, next) => {
       location,
       condition,
       additional_note,
+      images,
     });
     await insertOne(xwapitDB_collections.products, newProduct);
     res.status(201).json({
