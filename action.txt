@@ -1,0 +1,14 @@
+taking note of the user that approved a product
+taking note of the admin that created a new category
+taking note of the admin that updated a category
+
+
+credit wallet function
+1. use paystack to pay 
+ - covert to absolute number
+2 uset the function in carbon
+3. save the transcaction history to payment
+4. divise the amount by the conversion tate of money to xwapit coin
+5. update the wallet table
+
+//debit wallet function

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const xwapitDB_collections = require("../repository/collections");
 const UserSchema = new mongoose.Schema({
-    
   lastname: {
     type: String,
     required: true,
@@ -27,4 +26,4 @@ const UserSchema = new mongoose.Schema({
 //const Users = mongoose.model(xwapitDB.users, UserSchema);
 
 //module.exports = { Users };
-module.exports = mongoose.model(Users, UserSchema);
+module.exports = mongoose.model("Users", UserSchema);

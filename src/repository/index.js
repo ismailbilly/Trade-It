@@ -28,12 +28,25 @@ const insertOne = async (collection, data) => {
   return insert_details;
 };
 
-const updateOne = async (collection, data) => {
+const updateOne = async (collection, item, data) => {
   //todos
+  const Database = DbConnection.getDb();
+  const coll = Database.collection(collection);
+  const insert_details = await coll.updateOne(item, {
+    $set: data,
+    $currentDate: { updatedAt: true },
+  });
+  return insert_details;
 };
-
-const updateMany = async (collection, data) => {
+const updateMany = async (collection, item, data) => {
   //todos
+  const Database = DbConnection.getDb();
+  const coll = Database.collection(collection);
+  const insert_details = await coll.updateMany(item, {
+    $set: data,
+    $currentDate: { updatedAt: true },
+  });
+  return insert_details;
 };
 
 module.exports = {
