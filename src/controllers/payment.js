@@ -23,7 +23,7 @@ const startWalletFunding = async (req, res, next) => {
       amount,
       payment_reference: initialiseTransaction.reference,
     };
-    await insertOne(xwapitDB_collections.users, newPayment);
+    await insertOne(xwapitDB_collections.payment, newPayment);
     delete initialiseTransaction.data.data.access_code;
     res.status(200).json({
       status: true,
@@ -60,7 +60,7 @@ const completeWalletFunding = async (req, res, next) => {
     );
     const amountInNaira = Number(completeTransaction.data.data.amount) / 100;
 
-    credit(amountInNaira, user_id);
+    await credit(amountInNaira, user_id);
     res.status(200).json({
       status: true,
       message: "Your Wallet has been funded successfully",

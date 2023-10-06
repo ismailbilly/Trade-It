@@ -22,7 +22,7 @@ const getWalletBalance = async (req, res, next) => {
 
 const credit = async (amountPassed, user_id) => {
   const amount = Math.abs(Number(amountPassed));
-  const userWallet = getUserWallet(user_id);
+  const userWallet = await getUserWallet(user_id);
   const conversionRate = await getConversionAmountRate();
   const amountOfCoinFunded = amount / conversionRate;
 
@@ -45,7 +45,6 @@ const credit = async (amountPassed, user_id) => {
 
 const debit = async (amountOfCoinToBeDebited, user_id, comments) => {
   const amount = Math.abs(Number(amountOfCoinToBeDebited));
-  const userDetails = await getUserWallet(user_id);
   const userWallet = getUserWallet(user_id);
   const initialBalance = Number(userWallet.amount_after);
   if (initialBalance < amount) {

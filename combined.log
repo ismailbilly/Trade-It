@@ -138,3 +138,34 @@
 [32minfo[39m: ...app listening on port 8296
 [32minfo[39m: ...app listening on port 8296
 [32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/conversion/get-conversion-rate 404 - 11.072 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 3.976 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 27.238 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 13.272 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 26.695 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 7.709 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 13.113 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 183.528 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: GET /api/v1/conversion/get-conversion-rate 200 - 11.671 ms
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: GET /api/v1/conversion/get-conversion-rate 200 - 155.555 ms
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 14.800 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: GET /api/v1/conversion/get-conversion-rate 200 - 28.826 ms
+[32minfo[39m: GET /api/v1/conversion/get-conversion-rate 200 - 8.148 ms
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: GET /api/v1/conversion/get-conversion-rate 200 - 17.465 ms
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296

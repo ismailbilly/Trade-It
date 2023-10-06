@@ -1,19 +1,18 @@
 const { v4: uuidv4 } = require("uuid");
 
-const { find, updateOne, insertOne } = require("../repository/index");
+const { find, updateMany, insertOne } = require("../repository/index");
 const xwapitDB_collections = require("../repository/collections");
 
 const Conversion = require("../models/conversion");
 const getConversionRate = async (req, res, next) => {
   try {
-    // const _conversion = await find(xwapitDB_collections.conversion);
-    // console.log(_conversion[0].conversion_rate);
-    const _conversion = await getConversion();
+    const _conversion = await getConversionAmountRate();
     res.status(200).json({
       status: true,
       message: _conversion,
     });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 };
@@ -41,13 +40,16 @@ const createConversionRate = async (req, res, next) => {
 };
 
 const getConversionAmountRate = async () => {
+  const conversion = await find(xwapitDB_collections.conversion);
   return conversion[0].conversion_rate;
 };
 
 const updateConversionRate = async (req, res, next) => {
   const { conversion } = req.body;
   try {
-    await updateOne(xwapitDB_collections.conversion);
+    await updateMany(xwapitDB_collections.conversion, {
+      conversion_rate: conversion,
+    });
   } catch (error) {
     next(error);
   }

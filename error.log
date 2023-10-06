@@ -14,3 +14,12 @@
 [31merror[39m: POST /api/v1/conversion/create-conversion-rate 500 - 1.171 ms - message: -
 [31merror[39m: POST /api/v1/conversion/create-conversion-rate 500 - 18.840 ms - message: -
 [31merror[39m: POST /api/v1/conversion/create-conversion-rate 500 - 139.498 ms - message: -
+[31merror[39m: POST /api/v1/conversion/get-conversion-rate 404 - 11.072 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 3.976 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 27.238 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 13.272 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 26.695 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 7.709 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 13.113 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 183.528 ms - message: -
+[31merror[39m: GET /api/v1/conversion/get-conversion-rate 500 - 14.800 ms - message: -
