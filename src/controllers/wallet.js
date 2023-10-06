@@ -30,8 +30,8 @@ const credit = async (amountPassed, user_id) => {
     TRANSACTION_TYPE.CREDIT,
     amountOfCoinFunded,
     conversionRate,
-    userWallet,
-    userWallet.wallet_id
+    userWallet.wallet_id,
+    amount
   );
   const initialBalance = Number(userWallet.amount_after);
   const newBalance = initialBalance + amountOfCoinFunded; //amount_after
@@ -52,7 +52,7 @@ const debit = async (amountOfCoinToBeDebited, user_id, comments) => {
     return [false, "Insufficient balance"];
   }
   const newBalance = initialBalance - amount; //amount_after
-
+  await transaction(TRANSACTION_TYPE.DEBIT, amount, userWallet.wallet_id);
   await updateOne(
     xwapitDB_collections.wallet,
     { wallet_id: userWallet.wallet_id },
@@ -62,12 +62,14 @@ const debit = async (amountOfCoinToBeDebited, user_id, comments) => {
 const transaction = async (
   transaction_type,
   amount_of_coin,
-  conversion_rate,
-  wallet_id
+  conversion_rate = "",
+  wallet_id,
+  amount = null
 ) => {
   const newTransaction = new walletTransaction({
     wallet_transaction_id: uuidv4(),
     wallet_id,
+    amount,
     transaction_type,
     amount_of_coin,
     conversion_rate,
