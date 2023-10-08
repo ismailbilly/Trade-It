@@ -10,11 +10,13 @@ const httpStatus = require("http-status");
 const mongoose = require("mongoose");
 const { log } = require("winston");
 const db = require("./src/config/database");
-const authRoutes = require("./src/routes/auth");
+const authRoutes = require("./src/routes/user");
+const loginRoute = require("./src/routes/auth");
 const logger = require("./src/config/logger");
 const {redisClient} =require('./src/config/redis')
 const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
+const httpErrorCode = require('./src/utils/httpErrors')
 // Configurations
 const app = express();
 app.use(helmet()); // set security HTTP headers
@@ -43,10 +45,13 @@ redisClient.connect().catch(() => {
 
 //ROUTES
 app.use("/", authRoutes);
+app.use("/", loginRoute);
+
 
 //Server
 app.listen(port, () => {
   logger.info({ message: `...app listening on port ${port}` });
+ 
   console.log(`Server is running on port ${port}`);
 });
 

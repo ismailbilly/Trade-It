@@ -35,6 +35,12 @@ const UserSchema = new mongoose.Schema({
   },
   passwordResetToken: String,
   passwordResetExpires: Date,
+  timestamps: true,
+  // passwordResetExpires: {
+  //   type: Date,
+  //   default: Date.now,
+  //   expires: 3600, // this is the expiry time
+  // },
 });
 
 //const Users = mongoose.model(xwapitDB.users, UserSchema);

@@ -1,5 +1,4 @@
-// export function getHttpStatusCodes() {
-//   return {
+// module.exports=  {
 //     BAD_REQUEST: 400,
 //     UNAUTHORIZED: 401,
 //     FORBIDDEN: 403,
@@ -11,7 +10,7 @@
 //     SERVICE_UNAVAILABLE: 503,
 //     GATEWAY_TIMEOUT: 504,
 //   };
-// }
+
 
 
 
