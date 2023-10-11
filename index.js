@@ -18,6 +18,7 @@ const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
 const httpErrorCode = require('./src/utils/httpErrors')
 // Configurations
+
 const app = express();
 app.use(helmet()); // set security HTTP headers
 app.use(xss());
@@ -25,13 +26,16 @@ app.use(mongoSanitize());
 app.use(compression());
 app.use(cors());
 app.options("*", cors());
+app.options("*", cors());
 app.use(bodyParser.json()); //json request body
+app.use(express.urlencoded({ extended: true })); // parse urlencoded request body
 app.use(express.urlencoded({ extended: true })); // parse urlencoded request body
 app.use(successHandler); //This is from morgan
 app.use(errorHandler); //This is from morgan
 
 //PORT
 const port = process.env.PORT || 4500;
+
 
 //DATABASE
 db.connect();
@@ -46,8 +50,9 @@ redisClient.connect().catch(() => {
 //ROUTES
 app.use("/", authRoutes);
 app.use("/", loginRoute);
-
-
+;
+app.use("/api/v1/product", require("./src/routes/product"));
+app.use("/api/v1/category", require("./src/routes/category"));
 //Server
 app.listen(port, () => {
   logger.info({ message: `...app listening on port ${port}` });
@@ -61,6 +66,10 @@ app.use((req, res, next) => {
   err.status = 404;
   next(err);
 });
+//   const err = new Error("Not Found, Seems you got lost. so sorry about that");
+//   err.status = 404;
+//   next(err);
+// });
 //success
 // app.use(function ({ message,status, data = [] }, req, res, next) {
 //   res.status(status || 200).json({

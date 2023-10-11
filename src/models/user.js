@@ -1,47 +1,76 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const xwapitDB_collections = require("../repository/collections");
-const UserSchema = new mongoose.Schema({
-  lastname: {
-    type: String,
-    required: true,
+const UserSchema = new Schema(
+  {
+    user_id: {
+      type: String,
+      required: [true, "user_id is required"],
+      trim: true,
+    },
+    surname: {
+      type: String,
+      required: [true, " surname is required"],
+      trim: true,
+      minLength: 3,
+    },
+    othernames: {
+      type: String,
+      required: [true, "othername is required"],
+      trim: true,
+      minLength: 3,
+    },
+    email: {
+      type: String,
+      lowercase: true,
+      required: true,
+      unique: [true, "User with the email already exists"],
+      trim: true,
+    },
+    passwordHash: {
+      type: String,
+      required: [true, "passwordHash is required"],
+    },
+    passwordSalt: {
+      type: String,
+      required: [true, "passwordSalt is required"],
+    },
+    NIN: {
+      type: String,
+    },
+    Address: {},
+    Photo: {
+      type: String,
+    },
+    phone: {
+      type: String,
+      required: [true, "User phone number required"],
+    },
+    gender: {
+      type: String,
+      enum: {
+        values: ["male", "female", "decided not to say"],
+        message: "{VALUE} is not supported",
+      },
+    },
+    BVN: {
+      type: String,
+    },
+    is_BVN_Verified: {
+      type: Boolean,
+      default: false,
+    },
+    means_of_id: {
+      type: String,
+    },
+    is_verifid: {
+      type: Boolean,
+      default: false,
+    },
   },
-  othernames: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  password_hash: {
-    type: String,
-    required: true,
-  },
-  password_salt: {
-    type: String,
-    required: true,
-  },
-  phone_number: {
-    type: String,
-    required: true,
-  },
-  referral_code: {
-    type: String,
-    unique: true,
-  },
-  is_email_verified: {
-    type: Boolean,
-    default: false,
-  },
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  timestamps: true,
-  // passwordResetExpires: {
-  //   type: Date,
-  //   default: Date.now,
-  //   expires: 3600, // this is the expiry time
-  // },
-});
+  { timestamps: true }
+);
 
-git pul
-module.exports = mongoose.model("Users", UserSchema);
+//const Users = model(xwapitDB.users, UserSchema);
+
+//module.exports = { Users };
+module.exports = model("Users", UserSchema);
