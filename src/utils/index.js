@@ -102,16 +102,20 @@ const verifyChecksum = (paymentTypeId, transId, userId,
    return (generatedCheckSum == checksum) ? true : false;
 
 } 
-
+// Helper function to calculate wallet coins
+function calculateCoins(balance) {
+  return Math.floor(balance / 100);
+}
 
 
 module.exports = {
-    asyncErrorManager,
-    isEmpty,
-    makePhoneNumberInternational,
-    hashMyPassword,
-    generateOTP,
-    generateReferralCode,
-    generateChecksum,
-    verifyChecksum
-}
+  asyncErrorManager,
+  isEmpty,
+  makePhoneNumberInternational,
+  hashMyPassword,
+  generateOTP,
+  generateReferralCode,
+  generateChecksum,
+  verifyChecksum,
+  calculateCoins,
+};

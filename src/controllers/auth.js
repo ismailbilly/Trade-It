@@ -1,10 +1,11 @@
 const { isEmpty } = require("../utils");
-const loggerMessage = require("../utils/loggerHelper");
+const loggerErrorMessage = require("../utils/loggerHelper");
+const errorHandler = require("../utils/error");
 const { findQuery } = require("../repository");
 const { hashMyPassword, generateOTP } = require("../utils");
 const { redisClient } = require("../config/redis");
 const { readFileAndSendEmail } = require("../services/email");
-const errorHandler = require("../utils/error")
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 const login= async(req, res, next) => {
@@ -15,7 +16,7 @@ const login= async(req, res, next) => {
       email: email,
     });
       if (verifyUserEmail.length === 0) {
-        loggerMessage("Invalid credentials", req);
+        loggerErrorMessage("Invalid credentials", req);
         // const err = new Error("Invalid credential");
         // err.status = 400;
         // return next(err);
@@ -28,11 +29,9 @@ const login= async(req, res, next) => {
           userData.password_hash
         );
         if (!isPasswordValid) {
-          loggerMessage("Invalid credentials", req);
-
-          const err = new Error("Invalid credential");
-          err.status = 400;
-          return next(err);
+          loggerErrorMessage("Invalid credentials", req);
+           return next(errorHandler(400, "Invalid credential"));
+         
         } else {
           // Checking If user has verified email, if not, generate OTP and send them a mail
           if (!userData.is_email_verified) {
@@ -45,18 +44,8 @@ const login= async(req, res, next) => {
             });
 
             if (cachedOTP != "OK") {
-              logger.error({
-                message: `Unable to create account. details supplied is ${JSON.stringify(
-                  req.body
-                )}`,
-                status: 500,
-                method: req.method,
-                url: req.originalUrl,
-              });
-
-              const err = new Error("Unable to create account");
-              err.status = 500;
-              return next(err);
+              loggerErrorMessage("Unable to create account", req);
+               return next(errorHandler(400, "Unable to create account"));
             }
             //Send Email
 
@@ -77,10 +66,10 @@ const login= async(req, res, next) => {
                });
           } else {
             const payload = {
+              id: userData._id,
               email: userData.email,
               username: userData.username,
-              id: userData._id,
-              
+              selectedCategories: userData.selectedCategories
             };
             jwt.sign(
               payload,
@@ -90,24 +79,21 @@ const login= async(req, res, next) => {
                 if (err) {
                     //log the exact error in a logger
                     loggerMessage(
-                      "Login Error: while trying to sign the jw",
+                      "Login Error: while trying to sign the jwt",
                       req
-                    );
-                     const err = new Error("Invalid credential");
-                     err.status = 400;
-                     return next(err);
+                  );
+                  return next(errorHandler(400, "Invalid credential"));
+                 
                  
                 }
-                
-                delete payload.password_hash;
-                delete payload.password_salt;
-                delete payload.created_at;
-                delete payload.modified_at;
-
+                const {password_hash, password_salt,created_at, modified_at, ...restData} = userData
+               
+                  console.log(token);
                 res.setHeader("authorization", token);
                 res.status(200).send({
                   status: "true",
                   message: "Login successful",
+                  data: restData
                
                 });
               }
@@ -116,58 +102,7 @@ const login= async(req, res, next) => {
         }
       
       }
-    //if user signed up, but did not veerify their otp, we prompt them at login
-    // UserModel.findOne({ email })
-    //   .then((user) => {
-    //     bcrypt
-    //       .compare(password, user.password)
-    //       .then((passwordCheck) => {
-    //         if (!passwordCheck)
-    //           return res.status(400).send({
-    //             error: "Don't have Password",
-    //           });
-
-    //         if (!user.isVerified) {
-    //           // Generate a random OTP using the otp-generator package
-    //           const otp = otpGenerator.generate(4, {
-    //             lowerCaseAlphabets: false,
-    //             upperCaseAlphabets: false,
-    //             specialChars: false,
-    //           });
-
-    //           // Store the OTP in Redis, with the user's email as the key
-    //           client.set(email, otp);
-
-    //           return res.status(400).send({
-    //             error:
-    //               "User is not verified, please finish verification using this OTP",
-    //             OTP: otp,
-    //           });
-    //         }
-
-    //         // create jwt token
-    //         const token = jwt.sign(
-    //           {
-    //             userId: user._id,
-    //             username: user.username,
-    //           },
-    //           process.env.JWT_SECRET,
-    //           { expiresIn: "24h" }
-    //         );
-
-    //         return res.status(200).send({
-    //           msg: "Login Successful...!",
-    //           user: user,
-    //           token,
-    //         });
-    //       })
-    //       .catch((error) => {
-    //         return res.status(400).send({ error: "Password does not Match" });
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     return res.status(404).send({ error: "Username not Found" });
-    //   });
+   
   } catch (error) {
     next(error)
   }

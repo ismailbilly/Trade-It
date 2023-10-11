@@ -1,6 +1,10 @@
-//const Users = require("../models/user");
-//const xwapitDB_collections = require("../repository/collections");
+const Users = require("../models/user");
+const Wallet = require("../models/wallet");
+const Category = require('../models/category')
+const xwapitDB_collections =require("../repository/collections");
 //const successHandler = require("../utils/successResponse");
+const loggerErrorMessage = require("../utils/loggerHelper");
+const errorHandler = require("../utils/error");
 const {
   hashMyPassword,
   generateReferralCode,
@@ -10,9 +14,9 @@ const bcrypt = require("bcrypt");
 const logger = require("../config/logger");
 const {readFileAndSendEmail} = require('../services/email')
 const { redisClient } = require("../config/redis");
-const { findQuery, insertOne, updateOne } = require("../repository");
-const { log } = require("handlebars/runtime");
-const { isEmpty } = require("../utils");
+const { findQuery, insertOne, updateOne, find } = require("../repository");
+//const { log } = require("handlebars/runtime");
+const { isEmpty, calculateCoins } = require("../utils");
 
 const { setAsync, getAsync } = require("../repository/redisHelper");
 const { getHttpStatusCodes } = require("../utils/httpErrors");
@@ -20,7 +24,16 @@ const { getHttpStatusCodes } = require("../utils/httpErrors");
 
 
 const createUser = async (req, res, next) => {
-  const { lastname, othernames, email, password, phone_number } = req.body;
+  const cat = await find("Category")
+  console.log(cat);
+  const {
+    lastname,
+    othernames,
+    email,
+    password,
+    phone_number,
+    selected_categories
+  } = req.body;
   try {
    
       
@@ -29,34 +42,54 @@ const createUser = async (req, res, next) => {
     });
 
     if (user.length > 0) {
-      logger.error({
-        message: `Customer credentials existed. details supplied is ${JSON.stringify(
-          req.body
-        )}`,
-        status: 422,
-        method: req.method,
-        url: req.originalUrl,
-      });
-
-      const err = new Error("User already exists");
-      err.status = 400;
-      return next(err);
+      loggerErrorMessage("ustomer credentials existed.", req, 422);
+      return next(errorHandler(422, "User already exists"));
     } else {
       //category of interest. There should be next button on frontend to category page
-      //
-      const passwordHashAndSalt = await hashMyPassword(password);
-      const newUser = {
-        lastname,
-        othernames,
-        email,
-        phone_number,
-        password_hash: passwordHashAndSalt[1],
-        password_salt: passwordHashAndSalt[0],
-        referrer_code: generateReferralCode(4),
+      
+      // Create a new wallet with an initial balance of 200
+      const initialBalance = 200
+      const coins = calculateCoins(initialBalance);
+
+      const setUpWallet = {
+        balance: initialBalance,
+        coins: coins
       };
+      const wallet = await insertOne(xwapitDB_collections.wallet, setUpWallet);
+    
+        if (isEmpty(wallet)) {
+          loggerErrorMessage("Unable to set wallet up ", 500);
 
+          return next(errorHandler(500, "Unable to set wallet up"));
+      }
+      //save user
+      const passwordHashAndSalt = await hashMyPassword(password);
+        const newUser = {
+          lastname,
+          othernames,
+          email,
+          phone_number,
+          password_hash: passwordHashAndSalt[1],
+          password_salt: passwordHashAndSalt[0],
+          referrer_code: generateReferralCode(4),
+          wallet: wallet.insertedId,
+          selectedCategories: selected_categories,
+        };
       user = await insertOne("Users", newUser);
-
+      
+//  const userss = await findQuery("Users", {email:email
+  
+//  });
+//        console.log(userss);
+//  console.log(userss[0].wallet);
+//       //const walletId = userss[0].wallet;
+    
+//      const getWallet = await findQuery("Wallet", { _id: userss[0].wallet });
+//       console.log(getWallet);
+//       const allWallet = await find("Wallet")
+//       console.log(allWallet[0]._id);
+        // Assuming 'wallet' is the field referencing the wallet document
+   
       if (isEmpty(user)) {
         logger.error({
           message: `Unable to create account. details supplied is ${JSON.stringify(
@@ -71,45 +104,45 @@ const createUser = async (req, res, next) => {
         err.status = 500;
         return next(err);
       }
-    //generate OTP
-    const _otp = generateOTP();
-   
-    //Save to redis
-    const cachedOTP = await redisClient.set(email, _otp, {EX: 60 * 1});
+      //generate OTP
+      const _otp = generateOTP();
 
-    if (cachedOTP != "OK") {
-      logger.error({
-        message: `Unable to create account. details supplied is ${JSON.stringify(
-          req.body
-        )}`,
-        status: 500,
-        method: req.method,
-        url: req.originalUrl,
+      //Save to redis
+      const cachedOTP = await redisClient.set(email, _otp, { EX: 60 * 10 });
+
+      if (cachedOTP != "OK") {
+        logger.error({
+          message: `Unable to create account. details supplied is ${JSON.stringify(
+            req.body
+          )}`,
+          status: 500,
+          method: req.method,
+          url: req.originalUrl,
+        });
+
+        const err = new Error("Unable to create account");
+        err.status = 500;
+        return next(err);
+      }
+      //Send Email
+
+      // const dataToBeReplaced = {
+      //   fullname: `${lastname} ${othernames}`,
+      //   otp: _otp,
+
+      // };
+
+      // const sendMail = await readFileAndSendEmail(
+      //   email,
+      //   "Confirm your Xwapit account",
+      //   dataToBeReplaced,
+      //   "otp"
+      // );
+      res.status(201).json({
+        status: true,
+        message: "Account created",
       });
-
-      const err = new Error("Unable to create account");
-      err.status = 500;
-      return next(err);
     }
-    //Send Email
-    
-    // const dataToBeReplaced = {
-    //   fullname: `${lastname} ${othernames}`,
-    //   otp: _otp,
-      
-    // };
-    
-    // const sendMail = await readFileAndSendEmail(
-    //   email,
-    //   "Confirm your Xwapit account",
-    //   dataToBeReplaced,
-    //   "otp"
-    // );
-    res.status(201).json({
-      status: true,
-      message: "Account created",
-    });
-     }
   } catch (error) {
     next(error);
   }

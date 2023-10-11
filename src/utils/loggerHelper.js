@@ -1,13 +1,11 @@
 const logger =require('../config/logger')
-function loggerMessage(msg, data) {
-    return logger.error({
-      message: `${msg} ${JSON.stringify(
-        data.body
-      )}`,
-      status: 500,
-      method: data.method,
-      url: data.originalUrl,
-    });
+function loggerErrorMessage(msg, data, statusCode=500) {
+  return logger.error({
+    message: `${msg}, details supplied is ${JSON.stringify(data.body)}`,
+    status: statusCode,
+    method: data.method,
+    url: data.originalUrl,
+  });
 }
 
-module.exports = loggerMessage
+module.exports = loggerErrorMessage;

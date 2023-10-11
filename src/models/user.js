@@ -1,55 +1,55 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 const xwapitDB_collections = require("../repository/collections");
-const UserSchema = new Schema(
+const ProductCategorySchema = require('../schemas/Productcategory')
+const UserSchema = new mongoose.Schema(
   {
-    user_id: {
+    lastname: {
       type: String,
-      required: [true, "user_id is required"],
-      trim: true,
-    },
-    surname: {
-      type: String,
-      required: [true, " surname is required"],
+      required: [true, "Lastname is required"],
       trim: true,
       minLength: 3,
     },
     othernames: {
       type: String,
-      required: [true, "othername is required"],
+      required: [true, "Othername is required"],
       trim: true,
       minLength: 3,
     },
     email: {
       type: String,
-      lowercase: true,
       required: true,
+      lowercase: true,
       unique: [true, "User with the email already exists"],
       trim: true,
     },
-    passwordHash: {
+    phone_number: {
       type: String,
-      required: [true, "passwordHash is required"],
+      required: true,
     },
-    passwordSalt: {
+    referral_code: {
       type: String,
-      required: [true, "passwordSalt is required"],
+      unique: true,
     },
+    is_email_verified: {
+      type: Boolean,
+      default: false,
+    },
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+
     NIN: {
       type: String,
     },
-    Address: {},
-    Photo: {
+    Address: {
       type: String,
     },
-    phone: {
+    Photo: {
       type: String,
-      required: [true, "User phone number required"],
     },
     gender: {
       type: String,
       enum: {
-        values: ["male", "female", "decided not to say"],
-        message: "{VALUE} is not supported",
+        values: ["male", "female", "decide not to say"],
       },
     },
     BVN: {
@@ -62,15 +62,23 @@ const UserSchema = new Schema(
     means_of_id: {
       type: String,
     },
-    is_verifid: {
+    is_means_of_id_verifid: {
       type: Boolean,
       default: false,
     },
+    wallet: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "xwapitDB_collections.wallet",
+    },
+    selectedCategories: [
+      {
+        type: [ProductCategorySchema],
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: "xwapitDB_collections.category",
+      },
+    ],
   },
   { timestamps: true }
 );
 
-//const Users = model(xwapitDB.users, UserSchema);
-
-//module.exports = { Users };
-module.exports = model("Users", UserSchema);
+module.exports = mongoose.model(xwapitDB_collections.users, UserSchema);

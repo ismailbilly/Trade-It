@@ -17,6 +17,8 @@ const {redisClient} =require('./src/config/redis')
 const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
 const httpErrorCode = require('./src/utils/httpErrors')
+
+const seeder = require('./src/routes/seeder/product')
 // Configurations
 
 const app = express();
@@ -50,7 +52,7 @@ redisClient.connect().catch(() => {
 //ROUTES
 app.use("/", authRoutes);
 app.use("/", loginRoute);
-;
+app.use("/", seeder);
 app.use("/api/v1/product", require("./src/routes/product"));
 app.use("/api/v1/category", require("./src/routes/category"));
 //Server

@@ -1,37 +1,27 @@
-const { model, Schema } = require("mongoose");
+const mongoose= require("mongoose");
+const xwapitDB_collections = require("../repository/collections");
+const categorySchema = new mongoose.Schema(
+  {
+    category_name: {
+      type: String,
+      required: true,
+    },
+    subcategory: {
+      type: String,
+      //required: true
+    },
+    // category_name: {
+    //   type: String,
+    //   unique: [true, "This category name already exists"],
+    //   required: [true, "This field is required"],
+    // },
+    is_deleted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-const categorySchema = new Schema({
-  category_id: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  user_id: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  category_name: {
-    type: String,
-    unique: [true, "This category name already exists"],
-    required: [true, "This field is required"],
-  },
-  is_deleted: {
-    type: Boolean,
-    default: false,
-  },
-  description: {
-    type: String,
-    required: [true, "Description for this category is required"],
-  },
-  createdAt: {
-    type: Date,
-    default: new Date(),
-  },
-  updatedAt: {
-    type: Date,
-    default: new Date(),
-  },
-});
-
-const category = model("Category", categorySchema);
+const category = mongoose.model(xwapitDB_collections.category, categorySchema);
 module.exports = category;
