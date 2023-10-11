@@ -43,7 +43,5 @@ const UserSchema = new mongoose.Schema({
   // },
 });
 
-//const Users = mongoose.model(xwapitDB.users, UserSchema);
-
-//module.exports = { Users };
+git pul
 module.exports = mongoose.model("Users", UserSchema);
