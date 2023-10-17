@@ -78,3 +78,9 @@
 [32minfo[39m: POST /login 200 - 237.311 ms
 [32minfo[39m: ...app listening on port 4000
 [32minfo[39m: POST /login 200 - 227.199 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 167.626 ms
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: ...app listening on port 4000
+[32minfo[39m: POST /user 201 - 102.436 ms

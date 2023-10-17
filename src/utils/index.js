@@ -104,6 +104,7 @@ const verifyChecksum = (paymentTypeId, transId, userId,
 } 
 // Helper function to calculate wallet coins
 function calculateCoins(balance) {
+    
   return Math.floor(balance / 100);
 }
 

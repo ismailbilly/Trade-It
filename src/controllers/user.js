@@ -24,8 +24,8 @@ const { getHttpStatusCodes } = require("../utils/httpErrors");
 
 
 const createUser = async (req, res, next) => {
-  const cat = await find("Category")
-  console.log(cat);
+  // const cat = await find("Category")
+  // console.log(cat);
   const {
     lastname,
     othernames,
@@ -46,50 +46,34 @@ const createUser = async (req, res, next) => {
       return next(errorHandler(422, "User already exists"));
     } else {
       //category of interest. There should be next button on frontend to category page
-      
-      // Create a new wallet with an initial balance of 200
-      const initialBalance = 200
-      const coins = calculateCoins(initialBalance);
-
-      const setUpWallet = {
-        balance: initialBalance,
-        coins: coins
-      };
-      const wallet = await insertOne(xwapitDB_collections.wallet, setUpWallet);
-    
-        if (isEmpty(wallet)) {
-          loggerErrorMessage("Unable to set wallet up ", 500);
-
-          return next(errorHandler(500, "Unable to set wallet up"));
-      }
       //save user
       const passwordHashAndSalt = await hashMyPassword(password);
-        const newUser = {
-          lastname,
-          othernames,
-          email,
-          phone_number,
-          password_hash: passwordHashAndSalt[1],
-          password_salt: passwordHashAndSalt[0],
-          referrer_code: generateReferralCode(4),
-          wallet: wallet.insertedId,
-          selectedCategories: selected_categories,
-        };
+      const newUser = {
+        lastname,
+        othernames,
+        email,
+        phone_number,
+        password_hash: passwordHashAndSalt[1],
+        password_salt: passwordHashAndSalt[0],
+        referrer_code: generateReferralCode(4),
+        //wallet: wallet.insertedId,
+        selectedCategories: selected_categories,
+      };
       user = await insertOne("Users", newUser);
-      
-//  const userss = await findQuery("Users", {email:email
-  
-//  });
-//        console.log(userss);
-//  console.log(userss[0].wallet);
-//       //const walletId = userss[0].wallet;
-    
-//      const getWallet = await findQuery("Wallet", { _id: userss[0].wallet });
-//       console.log(getWallet);
-//       const allWallet = await find("Wallet")
-//       console.log(allWallet[0]._id);
-        // Assuming 'wallet' is the field referencing the wallet document
-   
+     
+      //  const userss = await findQuery("Users", {email:email
+
+      //  });
+      //        console.log(userss);
+      //  console.log(userss[0].wallet);
+      //       //const walletId = userss[0].wallet;
+
+      //      const getWallet = await findQuery("Wallet", { _id: userss[0].wallet });
+      //       console.log(getWallet);
+      //       const allWallet = await find("Wallet")
+      //       console.log(allWallet[0]._id);
+      // Assuming 'wallet' is the field referencing the wallet document
+
       if (isEmpty(user)) {
         logger.error({
           message: `Unable to create account. details supplied is ${JSON.stringify(
@@ -104,6 +88,23 @@ const createUser = async (req, res, next) => {
         err.status = 500;
         return next(err);
       }
+      // Create a new wallet with an initial balance of 200
+      const initialBalance = 200;
+      const coins = calculateCoins(initialBalance);
+
+      const setUpWallet = {
+        user_id: user.insertedId,
+        balance: initialBalance,
+        coins: coins,
+      };
+      const wallet = await insertOne(xwapitDB_collections.wallet, setUpWallet);
+
+      if (isEmpty(wallet)) {
+        loggerErrorMessage("Unable to set wallet up ", 500);
+
+        return next(errorHandler(500, "Unable to set wallet up"));
+      }
+
       //generate OTP
       const _otp = generateOTP();
 
@@ -124,7 +125,7 @@ const createUser = async (req, res, next) => {
         err.status = 500;
         return next(err);
       }
-      //Send Email
+      // Send Email
 
       // const dataToBeReplaced = {
       //   fullname: `${lastname} ${othernames}`,

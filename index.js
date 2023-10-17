@@ -9,6 +9,8 @@ const cors = require("cors");
 const httpStatus = require("http-status");
 const mongoose = require("mongoose");
 const { log } = require("winston");
+const swaggerJSDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const db = require("./src/config/database");
 const authRoutes = require("./src/routes/user");
 const loginRoute = require("./src/routes/auth");
@@ -47,7 +49,38 @@ redisClient.connect().catch(() => {
     process.exit(1)
     
 })
-//VIEW
+//SWAGGER
+//swagger 
+const swaggerDefinition = {
+    openapi: '3.0.0',
+    info: {
+      title: 'Xwapit API',
+      version: '1.0.0',
+      description: 'Xwapit API Documentation',
+      license: {
+        name: 'Zulfah',
+        url: '',
+      },
+      contact: {
+        name: '',
+        url: '',
+      },
+      },
+      servers: [
+        {
+          url: `http://localhost:${port}/api/v1`,
+          description: 'Development server',
+        }
+      ],
+    
+}
+    
+const options = {
+    swaggerDefinition,
+    apis: [`.src/routes/*.js`],
+}
+const swaggerSpec = swaggerJSDoc(options)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 //ROUTES
 app.use("/", authRoutes);

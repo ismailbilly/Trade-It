@@ -8,11 +8,11 @@ const walletSchema = new mongoose.Schema(
     //   required: true,
     //   unique: true,
     // },
-    // user_id: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "xwapitDB_collections.user",
-    //   required: true,
-    // },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "xwapitDB_collections.user",
+      required: true,
+    },
     // amount_before: {
     //   type: Double,
     //   required: true,

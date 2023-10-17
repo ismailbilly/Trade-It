@@ -72,4 +72,9 @@ const getCategories = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { createCategory, updateCategory, getCategory, getCategories };
+module.exports = {
+  createCategory, //post
+  updateCategory, //patch
+  getCategory, //get, params(category_id)
+  getCategories, //get
+};
