@@ -3,7 +3,8 @@ const xwapitDB_collections = {
   products: "Products",
   category: "Category",
   wallet: "Wallet",
-  categoryOfInterest :"categoryOfInterest"
+  categoryOfInterest: "categoryOfInterest",
+  categoryDescription: "CategoryDescription",
 };
 
 module.exports = xwapitDB_collections;
