@@ -84,3 +84,26 @@
 [32minfo[39m: ...app listening on port 4000
 [32minfo[39m: ...app listening on port 4000
 [32minfo[39m: POST /user 201 - 102.436 ms
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/category/seed-category-desription 404 - 12.193 ms - message: -
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 404 - 2.620 ms - message: -
+[31merror[39m: POST /category/seed-category-descriptions 404 - 0.861 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 14.462 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 46.245 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 53.946 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 21.213 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 344.158 ms - message: -
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: POST /api/v1/category/seed-category-descriptions 200 - 1292.353 ms
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: POST /api/v1/category/seed-category-descriptions 500 - 379.529 ms - message: -
+[32minfo[39m: ...app listening on port 8296

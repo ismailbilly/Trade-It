@@ -7,6 +7,7 @@ const {
   updateCategory,
   getCategory,
   getCategories,
+  createCategoryDescription,
 } = require("../controllers/category");
 
 router
@@ -21,6 +22,6 @@ router
     updateCategory
   )
   .get("/get-category/:category_id", getCategory)
-  .get("/get-categories", getCategories);
-
+  .get("/get-categories", getCategories)
+  .post("/seed-category-descriptions", createCategoryDescription);
 module.exports = router;

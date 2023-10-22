@@ -1,19 +1,19 @@
-require('dotenv').config();
+require("dotenv").config();
 // const sgMail = require('@sendgrid/mail');
-const Handlebars = require('handlebars');
-const fs = require('fs');
-const path = require('path');
+const Handlebars = require("handlebars");
+const fs = require("fs");
+const path = require("path");
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const readMyFileAndReturnPromise = (dirpath) => {
-	return new Promise((resolve, reject) => {
-		fs.readFile(dirpath, { encoding: 'utf-8' }, (err, fileRead) => {
-			if (err) {
-				reject(err);
-			}
-			resolve(fileRead);
-		});
-	});
+  return new Promise((resolve, reject) => {
+    fs.readFile(dirpath, { encoding: "utf-8" }, (err, fileRead) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(fileRead);
+    });
+  });
 };
 
 //ES6
@@ -53,8 +53,7 @@ const readFileAndSendEmail = async (
   toEmail,
   emailHeader,
   dataReplacement,
-  filename,
-  
+  filename
 ) => {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -79,4 +78,4 @@ const readFileAndSendEmail = async (
   await transporter.sendMail(mailOptions);
 };
 
-module.exports = { readFileAndSendEmail }
+module.exports = { readFileAndSendEmail };
