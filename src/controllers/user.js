@@ -1,7 +1,7 @@
 const Users = require("../models/user");
 const Wallet = require("../models/wallet");
-const Category = require('../models/category')
-const xwapitDB_collections =require("../repository/collections");
+const Category = require("../models/category");
+const xwapitDB_collections = require("../repository/collections");
 //const successHandler = require("../utils/successResponse");
 const loggerErrorMessage = require("../utils/loggerHelper");
 const errorHandler = require("../utils/error");
@@ -12,7 +12,7 @@ const {
 } = require("../utils");
 const bcrypt = require("bcrypt");
 const logger = require("../config/logger");
-const {readFileAndSendEmail} = require('../services/email')
+const { readFileAndSendEmail } = require("../services/email");
 const { redisClient } = require("../config/redis");
 const { findQuery, insertOne, updateOne, find } = require("../repository");
 //const { log } = require("handlebars/runtime");
@@ -20,8 +20,6 @@ const { isEmpty, calculateCoins } = require("../utils");
 
 const { setAsync, getAsync } = require("../repository/redisHelper");
 const { getHttpStatusCodes } = require("../utils/httpErrors");
-
-
 
 const createUser = async (req, res, next) => {
   // const cat = await find("Category")
@@ -32,11 +30,9 @@ const createUser = async (req, res, next) => {
     email,
     password,
     phone_number,
-    selected_categories
+    selected_categories,
   } = req.body;
   try {
-   
-      
     let user = await findQuery("Users", {
       email: email,
     });
@@ -60,7 +56,7 @@ const createUser = async (req, res, next) => {
         selectedCategories: selected_categories,
       };
       user = await insertOne("Users", newUser);
-     
+
       //  const userss = await findQuery("Users", {email:email
 
       //  });
@@ -149,7 +145,6 @@ const createUser = async (req, res, next) => {
   }
 };
 
-
 //verify/:email/:otp
 const verifyEmailOtp = async (req, res, next) => {
   const { email, otp } = req.params;
@@ -159,18 +154,18 @@ const verifyEmailOtp = async (req, res, next) => {
       email: email,
     });
     if (user.length === 0) {
-       logger.error({
-         message: `Invalid credentials. details supplied is ${JSON.stringify(
-           req.body
-         )}`,
-         status: 422,
-         method: req.method,
-         url: req.originalUrl,
-       });
+      logger.error({
+        message: `Invalid credentials. details supplied is ${JSON.stringify(
+          req.params
+        )}`,
+        status: 422,
+        method: req.method,
+        url: req.originalUrl,
+      });
 
-       const err = new Error("Invalid credential");
-       err.status = 400;
-       return next(err);
+      const err = new Error("Invalid credential");
+      err.status = 400;
+      return next(err);
     } else {
       //Get OTP From Redis
       const storedOtp = await redisClient.get(email);
@@ -199,24 +194,20 @@ const verifyEmailOtp = async (req, res, next) => {
         return next(err);
       }
     }
-   
-   
   } catch (error) {
     next(error);
   }
 };
 const resendEmailOtp = async (req, res, next) => {
-
-  const { email } = req.params
+  const { email } = req.params;
   const newOtp = generateOTP();
-  console.log(newOtp);
   try {
     const storedOtp = await redisClient.get(email);
     if (storedOtp) {
-      return res.status(200).json({
-        status: true,
-        message: "OTP can only be requested after 5 minutes"
-      })
+      return res.status(500).json({
+        status: false,
+        message: "OTP can only be requested after 5 minutes",
+      });
     } else {
       const cachedOTP = await redisClient.set(email, newOtp, { EX: 60 * 10 });
 
@@ -252,72 +243,70 @@ const resendEmailOtp = async (req, res, next) => {
         message: "otp resent to email",
       });
     }
-    
   } catch (err) {
-    next(err)
+    next(err);
   }
-}
-  const forgotPassword = async (req, res, next) => {
-    const {email} =req.params
-    try {
-      const user = await findQuery("Users", { email: email })
-      
-      if (isEmpty(user)) {
-         logger.error({
-           message: `Invalid credential. details supplied is ${JSON.stringify(
-             req.body
-           )}`,
-           status: 500,
-           method: req.method,
-           url: req.originalUrl,
-         });
+};
+const forgotPassword = async (req, res, next) => {
+  const { email } = req.params;
+  try {
+    const user = await findQuery("Users", { email: email });
 
-         const err = new Error("Invalid credential");
-         err.status = 500;
-         return next(err);
-      } else {
-        const hashForEmailVerification = Buffer.from(email, "utf8").toString(
-          "base64"
-        ); 
-       
+    if (isEmpty(user)) {
+      logger.error({
+        message: `Invalid credential. details supplied is ${JSON.stringify(
+          req.body
+        )}`,
+        status: 500,
+        method: req.method,
+        url: req.originalUrl,
+      });
 
-        //(min * sec * millisecond) link expires in 1 hour
-         //const passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRY;
-       
-          // console.log('====================================');
-          // console.log(passwordResetExpires);
-          // console.log('====================================');
-        await updateOne(
-          "Users",
-          { email: email },
-          {
-            passwordResetToken: hashForEmailVerification,
-           // passwordResetExpires: passwordResetExpires
-          }
-        )
-        //send email
-         const dataToBeReplaced = {
-           resetPasswordlink: `${process.env.FORGOT_PASSWORD}?email=${email}&token=${hashForEmailVerification}`,
-         };
+      const err = new Error("Invalid credential");
+      err.status = 500;
+      return next(err);
+    } else {
+      const hashForEmailVerification = Buffer.from(email, "utf8").toString(
+        "base64"
+      );
 
-         const sendMail = await readFileAndSendEmail(
-           email,
-           "Xwapit Reset Password",
-           dataToBeReplaced,
-           "forget_password"
-         );
-          res.status(200).json({
-            status: true,
-            message: "An email has been sent",
-          });
-      }
-    } catch (err) {
-      next(err)
+      //(min * sec * millisecond) link expires in 1 hour
+      //const passwordResetExpires = Date.now() + process.env.PASSWORD_RESET_EXPIRY;
+
+      // console.log('====================================');
+      // console.log(passwordResetExpires);
+      // console.log('====================================');
+      await updateOne(
+        "Users",
+        { email: email },
+        {
+          passwordResetToken: hashForEmailVerification,
+          // passwordResetExpires: passwordResetExpires
+        }
+      );
+      //send email
+      const dataToBeReplaced = {
+        resetPasswordlink: `${process.env.FORGOT_PASSWORD}?email=${email}&token=${hashForEmailVerification}`,
+      };
+
+      const sendMail = await readFileAndSendEmail(
+        email,
+        "Xwapit Reset Password",
+        dataToBeReplaced,
+        "forget_password"
+      );
+      res.status(200).json({
+        status: true,
+        message: "An email has been sent",
+      });
     }
+  } catch (err) {
+    next(err);
   }
+};
 const resetPassword = async (req, res, next) => {
-  const { email, token } = req.query
-  const { password } = req.body
+  const { email, token } = req.query;
+  const { password } = req.body;
   try {
     const checkIfHashMatch = await findQuery("Users", {
       passwordResetToken: token,
@@ -349,9 +338,10 @@ const resetPassword = async (req, res, next) => {
         passwordResetToken: undefined,
         //passwordResetExpires: undefined,
       }
-    );console.log('====================================');
-    console.log('I am password');
-    console.log('====================================');
+    );
+    console.log("====================================");
+    console.log("I am password");
+    console.log("====================================");
     console.log(updatePassword);
     if (!updatePassword) {
       logger.error({
@@ -372,9 +362,9 @@ const resetPassword = async (req, res, next) => {
       message: "Password reset successful",
     });
   } catch (err) {
-    next(err)
+    next(err);
   }
-}
+};
 module.exports = {
   createUser,
   verifyEmailOtp,
