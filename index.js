@@ -15,12 +15,12 @@ const db = require("./src/config/database");
 const authRoutes = require("./src/routes/user");
 const loginRoute = require("./src/routes/auth");
 const logger = require("./src/config/logger");
-const {redisClient} =require('./src/config/redis')
+const { redisClient } = require("./src/config/redis");
 const { successHandler, errorHandler } = require("./src/config/morgan");
 const successHandle = require("./src/utils/successResponse");
-const httpErrorCode = require('./src/utils/httpErrors')
+const httpErrorCode = require("./src/utils/httpErrors");
 
-const seeder = require('./src/routes/seeder/product')
+const seeder = require("./src/routes/seeder/product");
 // Configurations
 
 const app = express();
@@ -40,47 +40,44 @@ app.use(errorHandler); //This is from morgan
 //PORT
 const port = process.env.PORT || 4500;
 
-
 //DATABASE
 db.connect();
 //connect to redis
 redisClient.connect().catch(() => {
-    console.log('Redis client not connected');
-    process.exit(1)
-    
-})
+  console.log("Redis client not connected");
+  process.exit(1);
+});
 //SWAGGER
-//swagger 
+//swagger
 const swaggerDefinition = {
-    openapi: '3.0.0',
-    info: {
-      title: 'Xwapit API',
-      version: '1.0.0',
-      description: 'Xwapit API Documentation',
-      license: {
-        name: 'Zulfah',
-        url: '',
-      },
-      contact: {
-        name: '',
-        url: '',
-      },
-      },
-      servers: [
-        {
-          url: `http://localhost:${port}/api/v1`,
-          description: 'Development server',
-        }
-      ],
-    
-}
-    
+  openapi: "3.0.0",
+  info: {
+    title: "Xwapit API",
+    version: "1.0.0",
+    description: "Xwapit API Documentation",
+    license: {
+      name: "Zulfah",
+      url: "",
+    },
+    contact: {
+      name: "",
+      url: "",
+    },
+  },
+  servers: [
+    {
+      url: `http://localhost:${port}/api/v1`,
+      description: "Development server",
+    },
+  ],
+};
+
 const options = {
-    swaggerDefinition,
-    apis: [`.src/routes/*.js`],
-}
-const swaggerSpec = swaggerJSDoc(options)
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  swaggerDefinition,
+  apis: [`./src/routes/*.js`],
+};
+const swaggerSpec = swaggerJSDoc(options);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 //ROUTES
 app.use("/", authRoutes);
@@ -91,7 +88,7 @@ app.use("/api/v1/category", require("./src/routes/category"));
 //Server
 app.listen(port, () => {
   logger.info({ message: `...app listening on port ${port}` });
- 
+
   console.log(`Server is running on port ${port}`);
 });
 
