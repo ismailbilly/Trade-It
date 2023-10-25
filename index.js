@@ -89,7 +89,7 @@ app.use("/api/v1/category", require("./src/routes/category"));
 app.listen(port, () => {
   logger.info({ message: `...app listening on port ${port}` });
 
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port http://localhost:${port}`);
 });
 
 /// catch 404 and forwarding to error handler

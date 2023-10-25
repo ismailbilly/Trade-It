@@ -11,3 +11,7 @@
 [31merror[39m: Unable to verify email. details supplied is {"email":"ismail.bilkisu@gmail.com","otp":"132411"}
 [31merror[39m: GET /verify-email/ismail.bilkisu@gmail.com/132411 500 - 5.771 ms - message: -
 [31merror[39m: POST /login 500 - 78.736 ms - message: -
+[31merror[39m: GET /api/v1/user 404 - 46.830 ms - message: -
+[31merror[39m: POST /api/v1/user 404 - 1.364 ms - message: -
+[31merror[39m: POST /api/v1//user 404 - 0.774 ms - message: -
+[31merror[39m: POST /user 500 - 229.723 ms - message: -

@@ -223,3 +223,9 @@
 [32minfo[39m: GET /api-docs/favicon-32x32.png 304 - 13.975 ms
 [32minfo[39m: ...app listening on port 8296
 [32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[32minfo[39m: ...app listening on port 8296
+[31merror[39m: GET /api/v1/user 404 - 46.830 ms - message: -
+[31merror[39m: POST /api/v1/user 404 - 1.364 ms - message: -
+[31merror[39m: POST /api/v1//user 404 - 0.774 ms - message: -
+[31merror[39m: POST /user 500 - 229.723 ms - message: -
