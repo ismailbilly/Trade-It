@@ -13,7 +13,12 @@ const findQuery = async (collection, query) => {
   const data = await coll.find(query).toArray();
   return data;
 };
-
+const findOne = async (collection, item) => {
+  const Database = DbConnection.getDb();
+  const coll = Database.collection(collection);
+  const data = await coll.findOne(item);
+  return data;
+};
 const insertMany = async (collection, data) => {
   const Database = DbConnection.getDb();
   const coll = Database.collection(collection);
@@ -52,6 +57,7 @@ const updateMany = async (collection, item, data) => {
 module.exports = {
   find,
   findQuery,
+  findOne,
   insertMany,
   insertOne,
   updateOne,

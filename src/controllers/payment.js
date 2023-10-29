@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 
 const { startPayment, completePayment } = require("../services/payment");
-const { insertOne, updateOne } = require("../repository/index");
+const { insertOne, updateOne, findOne } = require("../repository/index");
 const xwapitDB_collections = require("../repository/collections");
 const { credit } = require("./wallet");
 const startWalletFunding = async (req, res, next) => {
@@ -21,7 +21,8 @@ const startWalletFunding = async (req, res, next) => {
       payment_id: uuidv4(),
       user_id,
       amount,
-      payment_reference: initialiseTransaction.reference,
+      payment_status: "pending",
+      payment_reference: initialiseTransaction.data.data.reference,
     };
     await insertOne(xwapitDB_collections.payment, newPayment);
     delete initialiseTransaction.data.data.access_code;
@@ -46,6 +47,11 @@ const completeWalletFunding = async (req, res, next) => {
       });
       return;
     }
+    const comfirmPaymentStatus = await findOne(xwapitDB_collections.payment, {
+      reference: reference,
+    });
+    if (comfirmPaymentStatus.payment_status === "fufilled")
+      throw new Error("Invalid Transaction");
     const completeTransaction = await completePayment(reference);
     if (completeTransaction.data.data.status != "success") {
       res.status(400).json({
